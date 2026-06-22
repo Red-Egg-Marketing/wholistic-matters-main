@@ -1129,7 +1129,7 @@ function my_custom_popular_posts_html_list($popular_posts, $instance) {
                 $output .= (empty($article_excerpt) ? wp_strip_all_tags(get_the_content(null, true, $post_data->ID)) : $article_excerpt);
                 $output .= "</div>" . "\n";
                 $output .= "<div class='article-item-image-wrap'>" . "\n";
-                $output .=  "<a class='overlay' href='$post_url'></a><img class='" . ($src ? 'lazyloading' : 'placeholder-img') . "' alt='$alt' src='" . ($src ? $src : get_template_directory_uri() . '/assets/images/placeholder.svg') . "'>";
+                $output .=  "<a class='overlay' href='$post_url' aria-hidden='true' tabindex='-1'></a><img class='" . ($src ? 'lazyloading' : 'placeholder-img') . "' alt='$alt' src='" . ($src ? $src : get_template_directory_uri() . '/assets/images/placeholder.svg') . "'>";
                 $output .= "</div>" . "\n";
                 if (!is_page(128)) {
                     if ($term_format[0]->slug === 'video') {

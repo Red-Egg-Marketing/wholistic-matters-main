@@ -170,6 +170,7 @@ function return_svg( $img, $class = '', $size = 'medium' ) {
 			$image = str_replace( '<svg ', '<svg class="' . esc_attr( $class ) . '" ', $image );
 		}
 		$image = preg_replace( '/^(.*)?(<svg.*<\/svg>)(.*)?$/is', '$2', $image );
+		$image = str_replace( '<svg ', '<svg aria-hidden="true" focusable="false" ', $image );
 
 	} elseif ( is_array( $img ) ) {
 		$image = wp_get_attachment_image( $img['id'], $size, false, array( 'class' => $class ) );

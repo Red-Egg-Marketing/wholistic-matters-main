@@ -736,11 +736,12 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
         <?php endif; ?>
 
         <div class="header-search">
-            <a id="header-search-icon" href="/?s="><?php echo return_svg(get_template_directory_uri().'/assets/images/search-icon.svg', 'search-icon') ?></a>
-            <a id="header-search-icon-mobile">
+            <a id="header-search-icon" href="/?s=" aria-label="Search"><?php echo return_svg(get_template_directory_uri().'/assets/images/search-icon.svg', 'search-icon') ?></a>
+            <button id="header-search-icon-mobile" type="button" class="header-search-icon-mobile" aria-label="Toggle search">
+
                 <?php echo return_svg(get_template_directory_uri().'/assets/images/search-icon.svg', 'search-icon') ?>
                 <?php echo return_svg(get_template_directory_uri().'/assets/images/cross-black.svg', 'cross-icon') ?>
-            </a>
+            </button>
             <input id="header-search" placeholder="Search">
             <div class="header__menu-toggle">
                 <div class="title-bar hide-for-large" data-responsive-toggle="main-menu" data-hide-for="large">
@@ -753,7 +754,7 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
         <div class="header-search">
             <?php echo return_svg(get_template_directory_uri().'/assets/images/search-icon.svg', 'search-icon') ?>
             <input id="search-modal-input" placeholder="Enter search here...">
-            <a href="" class="search-modal-arrow"><?php echo return_svg(get_template_directory_uri().'/assets/images/arrow-button.svg', 'arrow-button') ?></a>
+            <a href="" class="search-modal-arrow" aria-label="Submit search"><?php echo return_svg(get_template_directory_uri().'/assets/images/arrow-button.svg', 'arrow-button') ?></a>
         </div>
         <span id="search-option-title">Advance Search Options<?php display_svg(get_template_directory_uri().'/assets/images/arrow-down.svg', 'arrow-down-icon') ?></span>
         <?php if( have_rows('search_options_list', 'option') ): ?>

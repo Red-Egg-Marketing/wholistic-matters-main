@@ -95,8 +95,7 @@ $has_list = have_rows('accordion_list');
 								<img class="wp-image-235 entered lazyloaded" 
 									 style="width: 15px;" 
 									 src="https://wholisticmatters.com/wp-content/themes/wholisticmatters/assets/images/Line%201.svg" 
-									 alt="" 
-									 data-lazy-src="https://wholisticmatters.com/wp-content/themes/wholisticmatters/assets/images/Line%201.svg" 
+									 alt=""
 									 data-ll-status="loaded" />
 								<noscript>
 									<img class="wp-image-235" style="width: 15px;" 

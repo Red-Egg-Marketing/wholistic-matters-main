@@ -47,8 +47,6 @@ include_once get_stylesheet_directory() . '/inc/home-slider.php';
 include_once get_stylesheet_directory() . '/inc/class-dynamic-admin.php';
 // SVG Support
 include_once get_stylesheet_directory() . '/inc/svg-support.php';
-// Lazy Load for Images, iframes, videos
-include_once get_stylesheet_directory() . '/inc/class-lazyload.php';
 // Extend WP Search with Custom fields
 include_once get_stylesheet_directory() . '/inc/custom-fields-search.php';
 // WooCommerce functionality
@@ -307,7 +305,6 @@ function starter_scripts_and_styles() {
 
 		//plugins
 		wp_enqueue_script( 'slick', get_template_directory_uri() . '/assets/js/plugins/slick.min.js', null, '1.8.1', true );
-		wp_enqueue_script( 'lazyload', get_template_directory_uri() . '/assets/js/plugins/lazyload.min.js', null, '17.8.2', true );
 		wp_enqueue_script( 'select2', get_template_directory_uri() . '/assets/js/plugins/select2.full.min.js', null, '4.1.0', true );
 		wp_enqueue_script( 'fancybox.v3', get_template_directory_uri() . '/assets/js/plugins/jquery.fancybox.v3.js', null, '3.5.7', true );
 		//		wp_enqueue_script( 'fancybox.v4', get_template_directory_uri() . '/assets/js/plugins/fancybox.v4.js', null, '4.0.27', true );
@@ -650,38 +647,6 @@ if ( ! is_admin() ) {
 		return str_replace( '@year', date( 'Y' ), $value );
 	} );
 }
-
-/**
- * Apply lazyload to whole page content
- */
-
-function lazyload() {
-	ob_start( 'lazyloadBuffer' );
-}
-
-add_action( 'template_redirect', 'lazyload' );
-
-/**
- * @param string $html HTML content.
- *
- * @return string
- */
-function lazyloadBuffer( $html ) {
-	$lazy   = new CreateLazyImg;
-	$buffer = $lazy->ignoreScripts( $html );
-	$buffer = $lazy->ignoreNoscripts( $buffer );
-
-	$html = $lazy->lazyloadImages( $html, $buffer );
-	$html = $lazy->lazyloadPictures( $html, $buffer );
-	$html = $lazy->lazyloadVideos( $html, $buffer );
-	$html = $lazy->lazyloadBackgroundImages( $html, $buffer );
-	$html = $lazy->lazyloadIframes( $html, $buffer );
-
-	return $html;
-}
-
-// Disable default WP lazyload
-add_filter( 'wp_lazy_loading_enabled', '__return_false' );
 
 /**
  * Remove 'current_page_parent' class from blog page item on any other post type archives

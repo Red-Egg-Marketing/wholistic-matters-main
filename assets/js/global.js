@@ -381,15 +381,8 @@
 		//-------------------------------------------------
 
 		// Init LazyLoad
-		var lazyLoadInstance = new LazyLoad( {
-			elements_selector: 'img[data-lazy-src],.pre-lazyload,[data-pre-lazyload],video:not([src]):not([data-lazy-src]),video[data-lazy-src]',
-			data_src: "lazy-src",
-			data_srcset: "lazy-srcset",
-			data_sizes: "lazy-sizes",
-			skip_invisible: false,
-			class_loading: "lazyloading",
-			class_loaded: "lazyloaded",
-		} );
+		var lazyLoadInstance = { update: function() {}, loadAll: function() {} };
+
 		// Add tracking on adding any new nodes to body to update lazyload for the new images (AJAX for example)
 		window.addEventListener( 'LazyLoad::Initialized', function( e ) {
 			// Get the instance and puts it in the lazyLoadInstance variable

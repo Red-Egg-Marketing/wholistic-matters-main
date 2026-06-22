@@ -104,7 +104,7 @@ $title = get_field('title');
                     <?php if (empty($article_excerpt)) : echo wp_strip_all_tags(get_the_content(null, true, $post->ID)); else: echo $article_excerpt; endif;?>
                 </div>
                 <div class="article-item-image-wrap">
-                    <a class="overlay" href="<?php echo get_permalink($post->ID)?>"></a>
+                    <a class="overlay" href="<?php echo get_permalink($post->ID)?>" aria-hidden="true" tabindex="-1"></a>
                     <img alt="<?php echo get_post_meta( get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true)?>" class="<?php if(!get_attached_img_url($post->ID)) : echo 'placeholder-img'; endif; ?>" src="<?php if(get_attached_img_url($post->ID)): echo get_attached_img_url($post->ID); else: echo get_template_directory_uri().'/assets/images/placeholder.svg';endif; ?>">
                 </div>
 <!--                --><?php //if (!$choose_audiences) : ?>

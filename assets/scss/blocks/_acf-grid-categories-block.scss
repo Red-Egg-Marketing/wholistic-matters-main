@@ -1,0 +1,106 @@
+.acf-grid-categories-block {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-left: rem-calc(65);
+	margin-right: rem-calc(50);
+	padding: 0;
+	.grid-item-wrap {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		.grid-item {
+			position: relative;
+			width: rem-calc(200);
+			height: rem-calc(200);
+			margin-bottom: rem-calc(16);
+			margin-right: rem-calc(8);
+			margin-left: rem-calc(8);
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				border-radius: rem-calc(12);
+			}
+			.overlay {
+				display: flex;
+				align-items: flex-end;
+				padding: rem-calc(12);
+				border-radius: rem-calc(12);
+				background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+				p {
+					font-size: rem-calc(18);
+					margin-bottom: 0;
+					width: rem-calc(155);
+					padding-right: rem-calc(5);
+					color: #FFFFFF;
+					@include breakpoint(medium down) {
+						font-size: rem-calc(14);
+						line-height: rem-calc(19);
+					}
+					@include breakpoint(medium down) {
+						padding-right: 0;
+						width: rem-calc(120);
+					}
+				}
+				svg {
+					width: rem-calc(24);
+					height: rem-calc(24);
+					border-radius: 50%;
+					border: rem-calc(1) solid #FFFFFF;
+					padding: rem-calc(6);
+				}
+				&:hover {
+					background-color: #00000099;
+				}
+			}
+		}
+		@include breakpoint(medium down) {
+			justify-content: space-around;
+			.overlay {
+				justify-content: space-between;
+			}
+		}
+		@include breakpoint(small down) {
+			justify-content: center;
+		}
+		@include breakpoint(375 down) {
+			.overlay {
+				p {
+					width: 70% !important;
+					word-break: break-all;
+				}
+			}
+		}
+	}
+	@include breakpoint(medium down) {
+		display: none;
+		margin: 0 rem-calc(15);
+	}
+	@include breakpoint(small down) {
+
+		justify-content: center;
+		.grid-item-wrap {
+			gap: rem-calc(12);
+			.grid-item {
+				width: 47%;
+				height: rem-calc(140);
+				margin: 0;
+			}
+		}
+	}
+	.load-more-button {
+		margin-top: rem-calc(24);
+	}
+}
+
+
+
+.mobile-block {
+	display: none !important;
+	@include breakpoint(medium down) {
+		display: flex !important;
+		flex-direction: column;
+		align-items: center;
+	}
+}

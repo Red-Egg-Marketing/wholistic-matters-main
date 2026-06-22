@@ -1,0 +1,1156 @@
+// Foundation
+@import "inc/foundation-custom";
+
+/* Plugins */
+// Slick
+@import 'plugins/slick.scss';
+// Fancybox
+@import 'plugins/fancybox.v3';
+//@import 'plugins/fancybox.v4'; 
+// Home slider
+@import 'inc/slider';
+// Animation
+@import 'inc/animation';
+
+/* ---------------------------------------
+	Typography / Forms / Inputs / Buttons
+--------------------------------------- */
+
+@import 'typography';
+
+/* ---------------------------------------
+	WooCommerce
+--------------------------------------- */
+
+//@import 'inc/woo';
+
+/* -----------------------------------------
+   WordPress Core Classes
+----------------------------------------- */
+
+@import 'inc/wp-core';
+
+/* -----------------------------------------
+   General fixes
+----------------------------------------- */
+
+html {
+	height: 100%;
+}
+
+body {
+	position: static !important;
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	min-height: 100vh;
+	box-sizing: border-box;
+	
+}
+
+main {
+	display: block;
+	margin-top: rem-calc(110);
+	background-color: #ffffff;
+	@include breakpoint(medium down) {
+		margin-top: rem-calc(75);
+	}
+}
+
+iframe {
+	width: 100%;
+	height: 100%;
+}
+
+*:last-child {
+	margin-bottom: 0;
+}
+
+img, .woocommerce img, .woocommerce-page img {
+	transition: opacity 0.3s ease-in-out;
+
+	&.pre-lazyload, &[data-lazy-src] {
+		opacity: 1;
+	}
+
+	&.lazyloaded {
+		opacity: 1;
+	}
+}
+
+/* ---------------------------------------
+	Foundation tweaks
+--------------------------------------- */
+
+.responsive-embed {
+	display: block;
+}
+
+:root {
+	@each $bp in $breakpoint-classes {
+		@include breakpoint($bp) {
+			--grid-col-gap: #{rem-calc(-zf-get-bp-val($grid-margin-gutters,$bp))};
+		}
+	}
+}
+
+.grid-container {
+	width: 100%;
+}
+
+.grid-container:not(.full)>.grid-padding-x {
+	margin-right: calc(var(--grid-col-gap, 2rem) * -0.5);
+	margin-left: calc(var(--grid-col-gap, 2rem) * -0.5);
+}
+
+.grid-padding-x .grid-padding-x {
+	margin-right: calc(var(--grid-col-gap, 2rem) * -0.5);
+	margin-left: calc(var(--grid-col-gap, 2rem) * -0.5);
+}
+
+.grid-padding-x > .cell {
+	padding-right: calc(var(--grid-col-gap, 2rem) * 0.5);
+	padding-left: calc(var(--grid-col-gap, 2rem) * 0.5);
+}
+
+body {
+	--section-width: #{$global-width};
+	--section-horizontal-padding: calc(var(--grid-col-gap, 2rem) * 0.5);
+	--side-offset: max(calc((100% - var(--section-width)) / 2 + var(--section-horizontal-padding)), var(--section-horizontal-padding));
+	overflow-x: hidden;
+	touch-action: pan-y;
+}
+
+@supports (-webkit-touch-callout: none) {
+	html, body {
+		overflow-x: hidden;
+	}
+}
+
+.left-offset {
+	padding-left: var(--side-offset);
+}
+
+.right-offset {
+	padding-right: var(--side-offset);
+}
+
+/* -----------------------------------------
+    Contact Form
+----------------------------------------- */
+
+/*basic Gravity Form styles and fixes, if you dont need/use this -
+comment or delete styles below*/
+
+@import 'inc/gform';
+
+/* ---------------------------------------
+	Fanbcybox
+--------------------------------------- */
+
+img.fancybox-image {
+	width: 100%;
+	height: 100%;
+}
+
+/* ------------------------------------
+    Content Styles
+------------------------------------- */
+
+.main-content {
+	//padding-top: rem-calc(48);
+	//padding-bottom: rem-calc(48);
+	.page-title {
+		color: $sub-color;
+	}
+}
+
+
+#hs-overlay-cta-181938718511 {
+	iframe body{
+		border: 1px solid red;
+	}
+}
+
+/* ------------------------------------
+	Single Article Styles
+------------------------------------- */
+
+.single {
+	.acf-hero-section-block {
+		height: rem-calc(400);
+		@include breakpoint(small down) {
+			height: rem-calc(145);
+		}
+	}
+	.acf-hero-section-block.herbal--glossary {
+		height: rem-calc(450);
+	}
+	.single-content-wrap {
+		display: flex;
+		padding-top: rem-calc(40);
+		padding-left: rem-calc(80);
+		padding-right: rem-calc(64);
+		padding-bottom: rem-calc(75);
+		justify-content: space-between;
+		.single-article-content-left {
+			display: flex;
+			flex-direction: column;
+			width: rem-calc(824);
+			.podcast-block {
+				display: flex;
+				margin-bottom: rem-calc(20);
+				align-items: center;
+				.audio-player {
+					width: 100%;
+				}
+				.outline-button {
+					margin-top: 0;
+					padding: 0 rem-calc(15);
+					height: rem-calc(54);
+					margin-left: rem-calc(20);
+				}
+				@include breakpoint(small down) {
+					flex-direction: column;
+					.outline-button {
+						width: 100%;
+						margin-left: 0;
+						margin-top: rem-calc(10);
+					}
+				}
+			}
+			#navigation-title {
+				display: none;
+				font-weight: bold;
+				font-size: rem-calc(14);
+				svg {
+					width: rem-calc(12);
+					height: rem-calc(12);
+					margin-left: rem-calc(10);
+				}
+				@include breakpoint(medium down) {
+					display: flex;
+					align-items: center;
+				}
+			}
+ 			@include breakpoint(large down) {
+				padding-right: rem-calc(30);
+			}
+			.tags-block {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				.post-practitioner-category {
+					display: flex;
+					flex-wrap: wrap;
+					width: rem-calc(490);
+					align-items: center;
+					.category-hcp {
+						background: $orange;
+						margin-bottom: rem-calc(10);
+					}
+					span {
+						color: $text-color;
+						text-overflow: ellipsis;
+						overflow: hidden;
+						display: inline;
+						white-space: nowrap;
+						border-radius: rem-calc(43);
+						padding: rem-calc(5) rem-calc(5);
+						font-size: rem-calc(12);
+						height: rem-calc(24);
+						margin-top: 0;
+						letter-spacing: rem-calc(0.7);
+						margin-right: rem-calc(10);
+						//margin-bottom: rem-calc(10);
+						svg {
+							width: rem-calc(14);
+							height: rem-calc(14);
+						}
+						@include breakpoint(small down) {
+							margin-bottom: rem-calc(8);
+						}
+					}
+					a {
+						display: flex;
+						margin-bottom: rem-calc(10);
+						span {
+							padding: rem-calc(3) rem-calc(10);
+							&:hover {
+								opacity: 0.5;
+								cursor: pointer;
+							}
+						}
+						.not-allow {
+							&:hover {
+								cursor: auto;
+								opacity: 1;
+							}
+						}
+						.post-category-second {
+							border: rem-calc(1) solid $light-green;
+							background: none;
+							color: $text-color;
+						}
+						.post-category-first {
+							background: $light-green;
+						}
+					}
+					@include breakpoint(small down) {
+						align-items: flex-start;
+					}
+				}
+				.post-info-block {
+					//margin-bottom: rem-calc(13);
+					span {
+						&:first-child {
+							&:before {
+								content: none;
+							}
+						}
+					}
+					@include breakpoint(small down) {
+						margin-bottom: rem-calc(8);
+					}
+
+				}
+				@include breakpoint(large down) {
+					flex-wrap: wrap;
+					.post-practitioner-category {
+						width: max-content;
+						//>span, a {
+						//	margin-top: rem-calc(8);
+						//}
+					}
+				}
+			}
+			.single-article-header {
+				padding-top: rem-calc(10);
+				@include breakpoint(small down) {
+					padding-top: rem-calc(12);
+				}
+			}
+			.references-list {
+				margin-top: rem-calc(50);
+				.accordion-item {
+					.accordion-title {
+						display: inherit;
+						border: none;
+						border-radius: rem-calc(12);
+						background: $light-green;
+						color: $text-color;
+						font-size: rem-calc(20);
+						font-weight: bold;
+						&:before {
+							font-weight: 300;
+							color: $sub-color;
+							font-size: rem-calc(30);
+							margin-right: rem-calc(5);
+							top: 40%;
+						}
+						&:hover {
+							opacity: 0.5;
+						}
+					}
+					.accordion-content {
+						border: none;
+						padding-left: 0;
+						padding-right: 0;
+						ul, ol {
+							list-style-position: outside;
+							margin-left: rem-calc(20);
+							word-wrap: break-word;
+							li {
+								margin-bottom: rem-calc(12);
+								text-decoration: none;
+								a {
+									color: $sub-color;
+									text-decoration: underline;
+									background: none;
+
+									&:hover {
+										opacity: 0.5;
+									}
+								}
+							}
+						}
+					}
+				}
+				@include breakpoint(medium down) {
+					margin-top: rem-calc(40);
+				}
+			}
+		}
+		.single-article-header {
+			padding-top: rem-calc(15);
+			h1 {
+				color: $text-color;
+				font-size: rem-calc(46);
+				font-weight: 500;
+			}
+			.author-block-wrap {
+				display: none;
+				padding-bottom: rem-calc(18);
+				border-bottom: rem-calc(1) solid #1A18184D;
+				margin-bottom: 0;
+				justify-content: space-between;
+				.author-block {
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+					img {
+						width: rem-calc(64);
+						height: rem-calc(64);
+						//border-radius: 50%;
+						object-fit: contain;
+						@include breakpoint(small down) {
+							margin-bottom: rem-calc(24);
+						}
+					}
+					.author-info {
+						font-size: rem-calc(12);
+						//margin-left: rem-calc(10);
+						.author-info-title {
+							display: flex;
+							font-size: rem-calc(14);
+							span {
+								display: flex;
+								align-items: center;
+								&:before {
+									content: '\25CF';
+									font-size: rem-calc(6);
+									margin: 0 rem-calc(5);
+								}
+							}
+							@include breakpoint(small down) {
+								margin-bottom: rem-calc(8);
+								font-size: rem-calc(12);
+							}
+						}
+						p {
+							font-size: rem-calc(12);
+						}
+						@include breakpoint(small down) {
+							margin-left: 0;
+						}
+					}
+				}
+				.outline-button {
+					padding: 0 rem-calc(20);
+					margin: 0 rem-calc(16);
+				}
+				.share-button {
+					svg {
+						margin-top: rem-calc(36);
+						margin-left: rem-calc(60);
+						width: rem-calc(24);
+						height: rem-calc(24);
+					}
+					//.share-box {
+					//	position: absolute;
+					//}
+					&:hover {
+						opacity: 0.5;
+					}
+				}
+				@include breakpoint(small down) {
+					flex-direction: column;
+					display: flex;
+					border-bottom: none;
+					padding-bottom: 0;
+					img {
+						margin-bottom: rem-calc(12);
+						width: rem-calc(50);
+						height: rem-calc(50);
+					}
+					.author-info {
+						margin-left: 0;
+						p {
+							font-size: rem-calc(12);
+						}
+					}
+				}
+			}
+			.author-block-wrap.mobile-author {
+				display: flex;
+				position: relative;
+				margin-bottom: rem-calc(40);
+				.author-block {
+					flex-direction: row;
+					align-items: center;
+					img {
+						@include breakpoint(small down) {
+							display: none;
+						}
+					}
+					.author-info {
+						@include breakpoint(small down) {
+							margin-left: 0;
+							p {
+								display: none;
+							}
+						}
+					}
+					@include breakpoint(small down) {
+						justify-content: space-between;
+						svg {
+							margin-top: 0;
+						}
+					}
+				}
+				@include breakpoint(small down) {
+					flex-direction: row;
+					border-bottom: rem-calc(1) solid #1A18184D;
+				}
+			}
+			.single-article-content-left-description {
+				margin-bottom: rem-calc(20);
+				h2,h3,h4 {
+					font-weight: bold;
+					font-size: rem-calc(20);
+					font-family: $font;
+					@include breakpoint(medium down) {
+						font-size: rem-calc(22);
+						line-height: rem-calc(34);
+					}
+				}
+				ol,ul {
+					list-style-position: outside;
+					li {
+						text-decoration: none;
+						a {
+							color: $sub-color;
+							text-decoration: underline;
+							&:hover {
+								opacity: 0.5;
+							}
+						}
+					}
+				}
+				p {
+					margin-bottom: rem-calc(20);
+					a {
+						color: $sub-color;
+					}
+					img {
+						width: rem-calc(402);
+					}
+				}
+				.wp-block-image.bottom-image {
+					margin-top: 0;
+					margin-bottom: rem-calc(60);
+				}
+				.font-optima {
+					font-family: $sub-font;
+					font-size: rem-calc(26);
+				}
+				.wp-block-embed {
+					margin-top: rem-calc(60);
+					margin-bottom: rem-calc(16);
+				}
+				.wp-block-image {
+					margin-top: rem-calc(60);
+					margin-bottom: rem-calc(20);
+					img {
+						border-radius: rem-calc(16);
+						max-height: rem-calc(496) !important;
+						width: rem-calc(824) !important;
+						object-fit: contain;
+					}
+					@include breakpoint(medium down) {
+						width: 100%;
+						img {
+							width: 100% !important
+						}
+					}
+					@include breakpoint(small down) {
+
+						img {
+							max-height: rem-calc(272) !important
+						}
+					}
+				}
+			}
+
+			@include breakpoint(medium down) {
+				padding-top: 0;
+				.category-icon {
+					display: none;
+				}
+			}
+			@include breakpoint(small down) {
+				h1 {
+					font-size: rem-calc(32);
+					line-height: rem-calc(40);
+				}
+			}
+		}
+		.herbal-glossary-tags-block {
+			display: flex;
+			justify-content: space-between;
+			font-size: rem-calc(14);
+			padding: rem-calc(16) rem-calc(34) rem-calc(16) rem-calc(16);
+			background: $light-green;
+			border-radius: rem-calc(16);
+			margin-bottom: rem-calc(35);
+			span {
+				margin-right: rem-calc(16);
+				b {
+					margin-right: rem-calc(10);
+				}
+			}
+		}
+		.single-herbal-glossary-header {
+			.single-article-content-left-description {
+				margin-bottom: rem-calc(20);
+				h2 {
+					font-size: rem-calc(32);
+					font-weight: 500;
+					font-family: $sub-font;
+				}
+				ul {
+					margin-left: rem-calc(25);
+					list-style-position: outside;
+					margin-bottom: rem-calc(40);
+					li {
+						font-size: rem-calc(16);
+						text-decoration: none;
+						color: $text-color;
+						font-weight: normal;
+						margin-bottom: 0;
+						&::marker {
+							margin-right: rem-calc(1);
+							font-size: rem-calc(10);
+						}
+						a {
+							color: $sub-color;
+						}
+					}
+				}
+				.wp-block-columns {
+					.wp-block-column {
+						&:nth-child(2) {
+							padding-left: rem-calc(7);
+						}
+					}
+				}
+
+				.wp-block-image {
+					margin-bottom: rem-calc(35);
+					img {
+						width: rem-calc(842);
+						height: rem-calc(412);
+						border-radius: rem-calc(16);
+						object-fit: cover;
+					}
+				}
+			}
+			.references-list {
+				.accordion-item {
+					a {
+						background: #F5F5F5;
+					}
+				}
+			}
+		}
+		.single-article-right {
+			width: rem-calc(416);
+			padding-left: rem-calc(40);
+			border-left: rem-calc(1) solid #1A18184D;
+			position: sticky;
+			top: rem-calc(142);
+			height: max-content;
+
+
+			.sidebar-navigation-title {
+				font-size: rem-calc(14);
+				font-weight: bold;
+				line-height: 1;
+				font-family: $font;
+			}
+			.articles-list {
+				article {
+					padding-bottom: rem-calc(24);
+					border-bottom: rem-calc(1) solid #1A18184D;
+					margin-bottom: rem-calc(11);
+				}
+				.articles-list-title {
+					font-size: rem-calc(14);
+					font-weight: bold;
+					letter-spacing: rem-calc(0.5);
+					padding-bottom: rem-calc(5);
+					border-bottom: rem-calc(1) solid #1A18184D;
+					margin-bottom: rem-calc(10);
+				}
+				.post-info-block {
+					.preview__title {
+						font-size: rem-calc(20);
+						a {
+							font-weight: 400;
+							font-size: rem-calc(20);
+							line-height: rem-calc(24);
+						}
+					}
+					svg {
+						margin-left: 0;
+						margin-right: rem-calc(5);
+					}
+				}
+			}
+		}
+		.single-article-right.single-article {
+			@include breakpoint(small down) {
+				.articles-list {
+					border-bottom: none;
+				}
+			}
+		}
+		@include breakpoint(medium down) {
+			flex-direction: column;
+			.single-article-content-left {
+				padding-right: 0;
+				width: 100%;
+				margin-bottom: rem-calc(40);
+			}
+			.single-article-right {
+				width: 100%;
+				border: none;
+				padding-left: 0;
+				.sidebar-navigation-title {
+					display: none;
+				}
+				.navigation-list {
+					display: none;
+				}
+			}
+		}
+		@include breakpoint(medium down) {
+			padding: rem-calc(32);
+			.single-herbal-glossary-header {
+				.single-article-content-left-description {
+					.wp-block-columns {
+						padding: 0 !important;
+						gap: 0;
+					}
+				}
+			}
+		}
+		@include breakpoint(small down) {
+			padding: rem-calc(20);
+			.single-article-content-left {
+				margin-bottom: rem-calc(0);
+			}
+			.single-article-right {
+				margin-top: rem-calc(40);
+				.articles-list {
+					padding-top: 0;
+				}
+			}
+			.herbal-glossary-tags-block {
+				flex-direction: column;
+				margin-top: rem-calc(17);
+				margin-bottom: rem-calc(20);
+				span {
+					b {
+						display: block;
+					}
+					&:first-child {
+						margin-bottom: rem-calc(12);
+					}
+				}
+			}
+			.single-herbal-glossary-header {
+				.single-article-content-left-description {
+					margin-bottom: rem-calc(20);
+					h2 {
+						font-size: rem-calc(22);
+						margin-bottom: rem-calc(5);
+					}
+					ul {
+						margin-bottom: rem-calc(15);
+						li {
+							font-size: rem-calc(14);
+						}
+						@include breakpoint(small down) {
+							margin-top: 0 !important;
+						}
+					}
+					.wp-block-columns {
+						.wp-block-column {
+							&:nth-child(2) {
+								padding-left: 0;
+							}
+						}
+					}
+					.wp-block-image {
+						margin-bottom: rem-calc(20);
+						img {
+							width: 100%;
+							height: rem-calc(203);
+						}
+					}
+				}
+				.references-list {
+					margin-top: 0;
+				}
+			}
+		}
+		@include breakpoint(medium down) {
+			padding-top: rem-calc(12);
+		}
+	}
+	.acf-custom-subscribe-form-process {
+		padding-bottom: rem-calc(45);
+		padding-top: rem-calc(50);
+		background: #F5F5F5;
+		@include breakpoint(small down) {
+			padding-top: rem-calc(40);
+			padding-left: rem-calc(20);
+			padding-right: rem-calc(20);
+		}
+	}
+	.acf-custom-standard-process {
+		background: #F5F5F5;
+	}
+	@include breakpoint(small down) {
+		.acf-hero-section-block.herbal--glossary {
+			height: rem-calc(395);
+		}
+	}
+}
+.related-block {
+	border-bottom: none !important;
+	padding-bottom: 0 !important;
+	margin-bottom: rem-calc(40) !important;
+	article {
+		margin-bottom: rem-calc(12) !important;
+		&:last-child {
+			//padding-bottom: 0 !important;
+		}
+		.preview__title {
+			font-size: rem-calc(18);
+			padding-right: rem-calc(12);
+			a {
+				font-size: rem-calc(20);
+				line-height: rem-calc(24);
+			}
+		}
+	}
+}
+.articles-list {
+	article {
+		.post-practitioner-category {
+			flex-wrap: wrap;
+			width: auto;
+		}
+	}
+}
+.toggle {
+	display: none;
+	.arrow-top-icon {
+		transform: rotate(180deg);
+	}
+}
+/* ------------------------------------
+	Taxonomy Styles
+------------------------------------- */
+
+.taxonomy-page {
+	.acf-hero-section-with-two-featured-articles {
+		flex-direction: column;
+		align-items: center;
+		//padding-top: rem-calc(40);
+		padding: rem-calc(40) rem-calc(80) rem-calc(80);
+		.back-to-all {
+			width: 100%;
+			color: $text-color;
+			font-size: rem-calc(12);
+			margin-bottom: rem-calc(30);
+			svg {
+				width: rem-calc(10);
+				height: rem-calc(4);
+				transform: rotate(90deg);
+				margin-bottom: rem-calc(3);
+				margin-left: rem-calc(-3);
+				margin-right: rem-calc(4);
+			}
+		}
+		.content-section {
+			width: 100%;
+			text-align: center;
+			padding: 0 rem-calc(250);
+			margin-bottom: rem-calc(30);
+			margin-top: rem-calc(40);
+			@include breakpoint(medium down) {
+				padding: 0;
+				margin-top: rem-calc(24);
+			}
+			@include breakpoint(small down) {
+				text-align: left;
+			}
+		}
+		.list-two-articles {
+			width: 100%;
+			justify-content: center;
+			margin-left: 0;
+			.slick-list {
+				.slick-slide {
+					@include breakpoint(small down) {
+						width: rem-calc(300) !important;
+					}
+				}
+			}
+			.list-two-articles-item {
+				width: rem-calc(630);
+				height: rem-calc(366);
+				margin: 0;
+				background-repeat: no-repeat;
+				background-size: cover;
+				&:first-child {
+					margin-right: rem-calc(10);
+				}
+				&:nth-child(2) {
+					margin-left: rem-calc(10);
+					margin-right: rem-calc(20);
+				}
+			}
+			@include breakpoint(medium down) {
+				flex-direction: column;
+				margin-top: 0;
+				.list-two-articles-item {
+					margin-bottom: rem-calc(32);
+					margin-right: 0 !important;
+					margin-left: 0 !important;
+					width: 100%;
+
+				}
+			}
+		}
+
+		@include breakpoint(medium down) {
+			padding-left: rem-calc(20);
+			padding-right: rem-calc(20);
+			padding-bottom: rem-calc(60);
+		}
+		@include breakpoint(small down) {
+			padding-right: 0;
+		}
+	}
+}
+
+// 404 page
+
+.error-page {
+	h1 {
+		color: $sub-color;
+	}
+}
+
+/* Preloader */
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.preloader {
+	position: fixed;
+	z-index: 100000000;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	visibility: visible;
+	opacity: 1;
+	background-color: #fff;
+	color: #222;
+	transition: opacity 0.4s ease, visibility 0.4s ease;
+
+	&--hidden {
+		visibility: hidden;
+		opacity: 0;
+		pointer-events: none;
+	}
+}
+
+.preloader__icon {
+	@include position-center;
+
+	&::before {
+		content: '\f1ce';
+		display: block;
+		font-family: $fa;
+		font-size: rem-calc(40);
+		font-weight: 900;
+		animation: spin 1s ease-in-out infinite;
+	}
+}
+
+/* Search form */
+
+.search-form {
+	position: relative;
+
+	.posts-list & {
+		margin-bottom: rem-calc(40);
+	}
+}
+
+.search-form__input {
+	padding-right: rem-calc(90);
+	border-radius: rem-calc(50);
+	border-color: black;
+	&::placeholder {
+		font-style: italic;
+		color: $text-color;
+	}
+}
+
+.search-form__submit {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	height: auto;
+	padding: rem-calc(10 12);
+	cursor: pointer;
+	border-bottom-right-radius: rem-calc(50);
+	border-top-right-radius: rem-calc(50);
+	background: $sub-color;
+	//font-size: 0; // Uncomment to use icon in search button
+
+	&::after {
+		//content: "\f002"; // Uncomment to use icon in search button
+		font-family: $fa;
+		font-size: rem-calc(20);
+		font-weight: 900;
+	}
+	&:hover, &:focus {
+		background: $sub-color;
+		opacity: 0.5;
+	}
+}
+
+/* 404 page */
+
+.not-found {
+	padding-top: rem-calc(100);
+	padding-bottom: rem-calc(100);
+
+	.label {
+		margin-left: rem-calc(4);
+		padding: rem-calc(4 10);
+		background-color: $sub-color;
+		color: #fff;
+		text-decoration: none;
+		cursor: pointer;
+		border-radius: rem-calc(50);
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+}
+.article-image {
+	margin-bottom: rem-calc(15);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	a{
+		width: 100%;
+	}
+
+	img {
+		//height: rem-calc(220);
+		width: 100%;
+		object-fit: cover;
+		aspect-ratio: 582 / 293;
+
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+}
+
+.search-page {
+	.main-content > ul {
+		margin-bottom: rem-calc(32);
+		column-gap: 0;
+		li {
+			text-decoration: none;
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+	.sorry-message {
+		@include breakpoint(medium down) {
+			font-size: rem-calc(20);
+			margin-bottom: rem-calc(40);
+		}
+	}
+}
+.preview {
+	margin-bottom: rem-calc(20);
+}
+.placeholder-img {
+	object-fit: contain !important;
+}
+/* ---------------------------------------
+	Repeatable blocks
+--------------------------------------- */
+
+@import "repeatable-blocks";
+
+/* ---------------------------------------
+	Gutenberg default styles
+--------------------------------------- */
+
+@import "inc/gutenberg";
+
+/* ---------------------------------------
+	Gutenberg custom blocks
+--------------------------------------- */
+
+@import "blocks";
+
+/* ---------------------------------------
+	Header
+--------------------------------------- */
+
+@import 'header';
+
+/* ---------------------------------------
+	Sidebar
+--------------------------------------- */
+
+@import 'sidebar';
+
+/* ---------------------------------------
+	Footer
+--------------------------------------- */
+
+@import 'footer';
+
+/*---------------------------------------
+	TMPL: Home page
+---------------------------------------*/
+
+@import 'templates/home';
+
+/* ---------------------------------------
+	Page: Blog
+--------------------------------------- */
+
+@import 'templates/blog';
+
+/* ---------------------------------------
+	TMPL: Default page
+--------------------------------------- */
+
+@import 'templates/default';
+
+/* ---------------------------------------
+	TMPL: Contact page
+--------------------------------------- */
+
+@import 'templates/contact';

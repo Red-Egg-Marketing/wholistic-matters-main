@@ -1,0 +1,17 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "name": "side-by-side",
+  "title": "Side by Side",
+  "category": "custom-blocks",
+  "icon": "align-pull-left",
+  "apiVersion": 2,
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "block-render-template.php"
+  },
+  "supports": {
+    "align": [ "full" ],
+    "anchor": true,
+    "fullHeight": true
+  }
+}

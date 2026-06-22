@@ -1,0 +1,210 @@
+.acf-hero-section-with-two-featured-articles {
+	display: flex;
+	padding: rem-calc(48) rem-calc(80);
+	margin: 0;
+	background: $light-green;
+	justify-content: flex-start;
+	.back-link {
+		width: 100%;
+		a {
+			&:hover {
+				opacity: 0.5;
+			}
+		}
+	}
+	.content-section {
+		width: rem-calc(461);
+		h1 {
+			font-size: rem-calc(42);
+			line-height: 1.1;
+			color: $text-color;
+			margin-bottom: rem-calc(10);
+		}
+	}
+	.list-two-articles {
+		display: flex;
+		margin-left: rem-calc(20);
+		margin-top: rem-calc(5);
+		.list-two-articles-item {
+			position: relative;
+			width: rem-calc(380);
+			height: rem-calc(379);
+			margin-left: rem-calc(20);
+			border-radius: rem-calc(16);
+			background-repeat: no-repeat;
+			background-size: cover;
+			.overlay {
+				padding: rem-calc(23);
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+				background-color: #00000033;
+				.overlay-content-wrap {
+					color: #FFFFFF;
+					h2 {
+						font-size: rem-calc(32);
+						font-family: $sub-font;
+						color: #FFFFFF;
+						line-height: 1;
+						margin-bottom: rem-calc(7);
+					}
+					.post-info-block {
+						.format-icon {
+							margin-right: rem-calc(8);
+							path {
+								fill: #FFFFFF;
+							}
+						}
+						span {
+							&:nth-child(2) {
+								&:before {
+									color: #FFFFFF !important;
+								}
+							}
+						}
+					}
+					.post-content {
+						display: none;
+						-webkit-line-clamp: 2;
+						-webkit-box-orient: vertical;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
+				.outline-button {
+					color: #FFFFFF;
+					border-color: #FFFFFF;
+					padding: 0 rem-calc(20);
+					svg {
+						path {
+							fill: #FFFFFF;
+						}
+					}
+				}
+				&:hover {
+					background-color: #00000099;
+					.post-content {
+						display: -webkit-box;
+						-webkit-line-clamp: 2; /* Number of lines */
+						-webkit-box-orient: vertical;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
+			}
+			.overlay.mobile-wrap {
+				display: none;
+			}
+			@include breakpoint(large down) {
+				width: rem-calc(320);
+				//height: auto;
+				min-height: rem-calc(380);
+			}
+		}
+		@include breakpoint(large down) {
+			align-items: center;
+		}
+		@include breakpoint(medium down) {
+			margin-top: rem-calc(24);
+			.overlay {
+				display: none !important;
+			}
+			.overlay.mobile-wrap {
+				display: flex !important;
+			}
+		}
+		@include breakpoint(740px down) {
+			align-items: center;
+			.list-two-articles-item {
+				margin-bottom: rem-calc(32);
+			}
+		}
+	}
+
+	@include breakpoint(large down) {
+		justify-content: space-between;
+	}
+	@include breakpoint(medium down) {
+		padding: rem-calc(40) rem-calc(20);
+		flex-direction: column;
+		align-items: center;
+		.content-section {
+			width: 100%;
+		}
+		.list-two-articles {
+			width: 100%;
+			margin-left: 0;
+			justify-content: space-between;
+			.list-two-articles-item {
+				width: 48%;
+				margin-left: 0;
+			}
+		}
+	}
+	@include breakpoint(small down) {
+		padding-top: rem-calc(25);
+		padding-bottom: rem-calc(60);
+		padding-right: 0;
+		.content-section {
+			padding-right: rem-calc(20);
+			h1 {
+				font-size: rem-calc(36);
+				line-height: 1.25;
+			}
+		}
+		.list-two-articles {
+			flex-direction: row;
+			margin-top: rem-calc(20);
+			.slick-list {
+				width: 100%;
+				height: rem-calc(366);
+				.slick-slide {
+					width: rem-calc(300) !important;
+					height: rem-calc(366);
+					margin-right: rem-calc(20);
+				}
+				.slick-active {
+					.overlay {
+						background-color: #00000099;
+						.post-content {
+							display: -webkit-box;
+							-webkit-line-clamp: 2;
+							-webkit-box-orient: vertical;
+							overflow: hidden;
+							text-overflow: ellipsis;
+						}
+					}
+				}
+			}
+
+			.list-two-articles-item {
+				margin-bottom: 0;
+				height: rem-calc(366);
+				min-height: auto;
+				.overlay {
+					height: inherit;
+					.overlay-content-wrap {
+						h2 {
+							font-size: rem-calc(20);
+							padding-right: rem-calc(40);
+							line-height: rem-calc(24);
+						}
+					}
+				}
+			}
+			.slick-dots {
+				bottom: rem-calc(-20);
+			}
+		}
+	}
+	@include breakpoint(360px down) {
+		.list-two-articles {
+			.slick-list {
+				.slick-slide {
+					padding-right: rem-calc(20);
+				}
+			}
+		}
+	}
+}

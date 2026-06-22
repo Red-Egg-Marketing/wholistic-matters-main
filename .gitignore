@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Source maps
+*.map
+assets/css/*.map
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*~
+
+# Local by Flywheel / local config
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Compiled CSS — SEE NOTE BELOW. Off by default.
+# assets/css/foundation.css
+# assets/css/custom.css

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "name": "acf-two-articles-block",
+  "title": "ACF Two Articles Section",
+  "category": "custom-blocks",
+  "icon": "grid-view",
+  "apiVersion": 2,
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "block-render-template.php"
+  },
+  "supports": {
+    "align": [ "full" ],
+    "anchor": true,
+    "fullHeight": true
+  }
+}

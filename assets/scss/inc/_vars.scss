@@ -1,0 +1,112 @@
+// Project variables
+$white: #FBFBFA;
+$green: #576949;
+$hover-green: #7A866E;
+$gray: #9C9C9C;
+$light-gray: #C2C4C0;
+$orange: #F5A200;
+$light-green: #DFE5DC;
+$black: #21201F;
+
+$text-color: $black;
+
+$main-color: $white;
+$sub-color: $green;
+
+$font: "Poppins", sans-serif;
+$sub-font: 'Intrinseca', sans-serif;
+$sub-font-sec: 'IntrinsecaBook';
+$fa: 'Font Awesome 6 Free';
+$fab: 'Font Awesome 6 Brands';
+
+// Font Awesome Vars
+$fa-font-path: "../fonts";
+$fa-font-display: swap;
+
+// Project mixins
+
+%css-clip {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	word-wrap: normal !important;
+	clip-path: inset(50%);
+}
+
+
+// Custom fonts
+// Use https://transfonter.org/ service with "Fix vertical metrics" setting
+// to get correct converted web fonts. Use woff2 format. NOT ttf or otf!
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../fonts/OpenSans-Italic.woff2') format('woff2');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../fonts/OpenSans-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../fonts/OpenSans-Bold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "IntrinsecaBook";
+	src: url('../fonts/webFonts/IntrinsecaBookItalic/font.woff2') format('woff2'), url('webFonts/IntrinsecaBookItalic/font.woff') format('woff');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: "IntrinsecaBook";
+	src: url('../fonts/webFonts/IntrinsecaBook/font.woff2') format('woff2'), url('webFonts/IntrinsecaBook/font.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Intrinseca";
+	src: url('../fonts/webFonts/IntrinsecaLight/font.woff2') format('woff2'), url('webFonts/IntrinsecaLight/font.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Intrinseca";
+	src: url('../fonts/webFonts/IntrinsecaRegular/font.woff2') format('woff2'), url('webFonts/IntrinsecaRegular/font.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "IntrinsecaLightItalic";
+	src: url('../fonts/webFonts/IntrinsecaLightItalic/font.woff2') format('woff2'), url('webFonts/IntrinsecaLightItalic/font.woff') format('woff');
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Intrinseca";
+	src: url('../fonts/webFonts/IntrinsecaItalic/font.woff2') format('woff2'), url('webFonts/IntrinsecaItalic/font.woff') format('woff');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}

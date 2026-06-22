@@ -1,0 +1,19 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "name": "acf-advanced",
+  "title": "ACF Advanced",
+  "category": "custom-blocks",
+  "icon": "screenoptions",
+  "apiVersion": 2,
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "block-render-template.php"
+  },
+  "supports": {
+    "align": [
+      "full"
+    ],
+    "anchor": true,
+    "fullHeight": true
+  }
+}

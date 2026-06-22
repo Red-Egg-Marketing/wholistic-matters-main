@@ -1,0 +1,323 @@
+.footer {
+	//margin-top: rem-calc(10);
+	padding-top: rem-calc(40);
+	padding-left: rem-calc(80);
+	padding-right: rem-calc(65);
+	margin-top: auto;
+	background: $light-green;
+	.footer-top-section {
+		justify-content: space-between;
+		@include breakpoint(large down) {
+			justify-content: center;
+			margin-bottom: rem-calc(25);
+		}
+		//@include breakpoint(710px down) {
+		//	justify-content: center;
+		//}
+		@include breakpoint(medium down) {
+			justify-content: center;
+			margin-bottom: 0;
+			flex-direction: column-reverse;
+			.gform_fields-confirm {
+				background: #BAC3B1;
+				padding: rem-calc(24) rem-calc(20);
+				max-width: 100%;
+			}
+			.gform_footer {
+				.gform_ajax_spinner {
+					display: none !important;
+				}
+			}
+			.gform-theme {
+				display: block !important;
+
+				.gform_title {
+					text-align: left;
+				}
+			}
+		}
+		#subscribe {
+			@include breakpoint(small down) {
+				width: 100%;
+			}
+		}
+	}
+	//@include breakpoint(medium down) {
+	//
+	//}
+	@include breakpoint(medium down) {
+		padding-left: rem-calc(32);
+		padding-right: rem-calc(32);
+		text-align: center;
+	}
+	.gform-theme {
+		width: rem-calc(335);
+		height: fit-content;
+		margin-left: rem-calc(55);
+		margin-bottom: rem-calc(20);
+		.gform_title {
+			font-size: rem-calc(18);
+			font-family: $font;
+			font-weight: 600;
+			//@include breakpoint(710px down) {
+			//	text-align: center;
+			//}
+		}
+		form {
+			align-items: flex-start !important;
+			//position: relative;
+		}
+		@include breakpoint(1300 down) {
+			margin-left: rem-calc(20);
+			width: auto;
+		}
+		//@include breakpoint(medium down) {
+		//	width: 100%;
+		//	margin-left: 0;
+		//}
+		@include breakpoint(medium down) {
+			//display: none;
+			width: 100%;
+			//margin-left: 0;
+			padding: rem-calc(24) rem-calc(20);
+			margin-left: 0;
+			background: #BAC3B1;
+			.gform_title {
+				text-align: left;
+			}
+		}
+	}
+	@include breakpoint(medium down) {
+		text-align: left;
+		padding: 0;
+		margin-top: 0;
+	}
+}
+
+.logo-menu-wrap {
+	display: flex;
+	.menu-footer-menu-container {
+		margin-left: rem-calc(32);
+	}
+
+	@include breakpoint(medium down) {
+		flex-direction: column;
+		.menu-footer-menu-container {
+			margin-left: 0;
+			ul {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+.contact-block {
+	.contact-block-title {
+		font-size: rem-calc(18);
+		font-family: $font;
+		font-weight: 600;
+	}
+	.contact-block-email {
+		padding: 0;
+		color: $text-color;
+		font-size: rem-calc(14);
+		font-weight: 400;
+		font-style: italic;
+		&:hover {
+			color: $sub-color;
+			text-decoration: underline;
+		}
+	}
+	@include breakpoint(medium down) {
+		padding: rem-calc(16);
+	}
+}
+
+.footer__logo {
+	@include breakpoint(medium down) {
+		padding-right: rem-calc(16);
+		padding-left: rem-calc(16);
+		margin-top: rem-calc(24);
+		justify-content: space-between;
+		display: flex;
+		width: 100%;
+	}
+	@include breakpoint(368 down) {
+		justify-content: space-between;
+	}
+
+	img {
+		width: rem-calc(236);
+		height: auto;
+		object-fit: contain;
+	}
+}
+.menu-footer-menu-container {
+	@include breakpoint(medium down) {
+		width: 100%;
+		padding-right: rem-calc(16);
+		padding-left: rem-calc(16);
+	}
+}
+.mobile {
+	display: none;
+	@include breakpoint(medium down) {
+		display: flex !important;
+		width: rem-calc(139) !important;
+		height: rem-calc(70) !important;
+	}
+}
+.custom-logo-link {
+	@include breakpoint(medium down) {
+		display: none;
+	}
+}
+.footer__sp {
+	display: flex;
+	margin-top: rem-calc(20);
+	p {
+		font-size: rem-calc(14);
+		font-weight: 400;
+		margin-bottom: 0;
+	}
+	.stay-tuned {
+		@include breakpoint(medium down) {
+			justify-content: center;
+			gap: 0;
+			width: fit-content;
+		}
+	}
+	@include breakpoint(medium down) {
+		flex-direction: column;
+		width: 50%;
+		padding-left: rem-calc(20);
+		p {
+			font-size: rem-calc(12);
+			margin-bottom: rem-calc(13);
+		}
+	}
+	@include breakpoint(360 down) {
+		margin-left: rem-calc(12);
+		padding-left: 0;
+	}
+}
+
+.footer-menu {
+	display: grid;
+	grid-gap: rem-calc(5);
+	grid-template-columns: repeat(1, 1fr);
+	grid-auto-columns: 1fr;
+	grid-auto-rows: rem-calc(35);
+	margin-top: rem-calc(5);
+	//grid-column-gap: rem-calc(40);
+	@include breakpoint(medium down) {
+		justify-content: center;
+		margin: 0;
+		grid-auto-rows: rem-calc(24);
+		column-gap: rem-calc(50);
+	}
+	@include breakpoint(360px down) {
+		column-gap: rem-calc(15);
+	}
+	.menu-item {
+		text-decoration: none;
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+	
+	/// Footer menu-item id
+	#menu-item-4059 {
+		grid-column: span 2;
+		grid-row: 1;
+	}
+	#menu-item-6873 {
+		grid-column: span 2;
+		grid-row: 2;
+	}
+	#menu-item-328 {
+		grid-column: span 2;
+		grid-row: 3;
+	}
+	#menu-item-329 {
+		grid-column: span 2;
+		grid-row: 1;
+		margin-left: rem-calc(40);
+		@include breakpoint(medium down) {
+			grid-row: 4;
+			margin-left: 0;
+		}
+	}
+
+	#menu-item-4075 {
+		grid-column: span 2;
+		grid-row: 4;
+		//margin-left: rem-calc(40);
+		@include breakpoint(medium down) {
+			grid-row: 2;
+			margin-left: 0;
+		}
+	}
+	#menu-item-4068 {
+		grid-column: span 2;
+		grid-row: 2;
+		//margin-left: rem-calc(40);
+		@include breakpoint(medium down) {
+			grid-row: 1;
+			margin-left: 0;
+		}
+	}
+	#menu-item-5234 {
+		grid-column: span 1;
+		grid-row: 2;
+		margin-left: rem-calc(40);
+		@include breakpoint(medium down) {
+			grid-row: 3;
+			margin-left: 0;
+		}
+	}
+
+	li {
+		grid-row: 1;
+		width: max-content;
+		a {
+			padding: 0;
+			color: $text-color;
+			font-size: rem-calc(14);
+			font-weight: 400;
+			@include breakpoint(small down) {
+				font-size: rem-calc(12);
+			}
+			&.button {
+				padding: $button-padding;
+				line-height: 1;
+			}
+		}
+	}
+}
+
+
+
+.footer__copy {
+	padding-top: rem-calc(20);
+	padding-bottom: rem-calc(20);
+	border-top: rem-calc(1) solid #1A18184D;
+	font-size: clamp(12px, rem-calc(12),rem-calc(12));
+	p {
+		font-size: rem-calc(14);
+		font-weight: 400;
+	}
+	@include breakpoint(medium down) {
+		margin-top: rem-calc(24);
+		margin-right: rem-calc(16);
+		margin-left: rem-calc(16);
+		p {
+			font-size: rem-calc(12);
+		}
+	}
+}
+.desktop-form {
+	@include breakpoint(medium down) {
+		display: none;
+	}
+}

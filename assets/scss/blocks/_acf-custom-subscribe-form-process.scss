@@ -1,0 +1,75 @@
+.acf-custom-subscribe-form-process {
+	display: flex;
+	margin: 0;
+	align-items: center;
+	img {
+		width: rem-calc(610);
+		height: rem-calc(379);
+		border-radius: rem-calc(16);
+		object-fit: cover;
+		@include breakpoint(medium down) {
+			width: 100%;
+		}
+		@include breakpoint(small down) {
+			height: rem-calc(231);
+			margin-top: rem-calc(16);
+		}
+	}
+	.subscribe-content {
+		width: rem-calc(470);
+		margin-left: rem-calc(60);
+		padding-top: rem-calc(57);
+		h2 {
+			letter-spacing: 0;
+			line-height: 1.1;
+			font-family: $sub-font-sec;
+		}
+		.gform_fields-confirm {
+			max-width: 100%;
+			.gform_title {
+				display: none;
+			}
+		}
+		form {
+			margin-top: rem-calc(22);
+			@include breakpoint(small down) {
+				margin-top: rem-calc(5);
+				margin-bottom: rem-calc(20);
+			}
+		}
+
+		.gform_fields-confirm {
+			margin-top: rem-calc(22);
+			@include breakpoint(small down) {
+				margin-top: rem-calc(5);
+				margin-bottom: rem-calc(20);
+			}
+		}
+		@include breakpoint(medium down) {
+			margin-left: 0;
+			width: 100%;
+		}
+		@include breakpoint(small down) {
+			padding-top: 0;
+			h2 {
+				font-size: rem-calc(28);
+			}
+		}
+	}
+	@include breakpoint(medium down) {
+		flex-direction: column;
+	}
+	@include breakpoint(small down) {
+		padding: 0;
+		flex-direction: column-reverse;
+	}
+}
+.subscribe-block {
+	@include breakpoint(medium down) {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+	@include breakpoint(small down) {
+		padding: rem-calc(40) rem-calc(20) !important;
+	}
+}

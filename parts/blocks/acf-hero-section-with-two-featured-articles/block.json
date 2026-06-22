@@ -1,0 +1,17 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "name": "acf-hero-section-with-two-featured-articles",
+  "title": "ACF Hero Section With Two Featured Articles",
+  "category": "custom-blocks",
+  "icon": "format-image",
+  "apiVersion": 2,
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "block-render-template.php"
+  },
+  "supports": {
+    "align": [ "full" ],
+    "anchor": true,
+    "fullHeight": true
+  }
+}

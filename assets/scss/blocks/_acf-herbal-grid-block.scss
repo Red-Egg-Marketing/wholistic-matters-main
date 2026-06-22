@@ -1,0 +1,49 @@
+.acf-herbal-grid-block {
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0;
+	.grid-item-wrap {
+		width: rem-calc(160);
+		height: rem-calc(100);
+		position: relative;
+		margin-bottom: rem-calc(10);
+		margin-right: rem-calc(12);
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+			border-radius: rem-calc(12);
+		}
+		.overlay {
+			display: flex;
+			align-items: flex-end;
+			padding: rem-calc(12);
+			border-radius: rem-calc(12);
+			background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+			p {
+				font-size: rem-calc(16);
+				font-weight: 400;
+				letter-spacing: rem-calc(-1);
+			}
+			&:hover {
+				background-color: #00000099;
+				color: #FFFFFF;
+			}
+		}
+	}
+	@include  breakpoint(medium down) {
+		display: none;
+	}
+	@include  breakpoint(small down) {
+		padding-top: 0;
+		justify-content: center;
+		padding-bottom: 0;
+		gap: rem-calc(12);
+		.grid-item-wrap {
+			width: 47%;
+			margin: 0;
+		}
+	}
+}
+

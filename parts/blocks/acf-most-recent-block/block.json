@@ -1,0 +1,17 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "name": "acf-most-recent-block",
+  "title": "ACF Most Recent",
+  "category": "custom-blocks",
+  "icon": "slides",
+  "apiVersion": 2,
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "block-render-template.php"
+  },
+  "supports": {
+    "align": [ "full" ],
+    "anchor": true,
+    "fullHeight": true
+  }
+}

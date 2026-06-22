@@ -1,0 +1,254 @@
+.acf-custom-media-list-articles {
+  padding-top: rem-calc(37);
+  padding-bottom: rem-calc(40);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .media-filter-section {
+    width: 100%;
+    padding-bottom: rem-calc(12);
+    margin-bottom: rem-calc(12);
+    border-bottom: rem-calc(1) solid #1A18184D;
+    a {
+      color: $text-color;
+      display: flex;
+      align-items: center;
+      font-size: rem-calc(14);
+      width: max-content;
+      svg {
+        width: rem-calc(10);
+        height: rem-calc(4);
+        margin-left: rem-calc(8);
+      }
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+    @include breakpoint(medium down) {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: rem-calc(0);
+    }
+  }
+  .sub-media-list {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    //background-color: #FFFFFF;
+    //padding-top: rem-calc(12);
+    padding-bottom: rem-calc(12);
+    .sub-media-item {
+      padding-top: rem-calc(20);
+      color: $text-color;
+      font-size: rem-calc(14);
+      width: max-content;
+      &:hover {
+        opacity: 0.5;
+      }
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+
+  .sub-media-list.toggle {
+    display: flex;
+    @include breakpoint(small down) {
+      align-items: center;
+    }
+  }
+  .media-list-articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    a {
+      display: flex;
+      align-items: center;
+      color: $text-color;
+      font-size: rem-calc(20);
+      line-height: 1.2;
+      font-weight: 500;
+      svg {
+        margin-left: rem-calc(8);
+      }
+      @include breakpoint(small down) {
+        font-size: rem-calc(24);
+      }
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+    .not-allow {
+      &:hover {
+        opacity: 1;
+        cursor: auto;
+      }
+    }
+    .media-article-item {
+      display: flex;
+      flex-direction: column;
+      padding-top: rem-calc(12);
+      padding-bottom: rem-calc(20);
+      border-bottom: rem-calc(1) solid $light-gray;
+      width: rem-calc(609);
+      .media-article-item-content-wrap {
+        display: flex;
+        justify-content: space-between;
+        .media-article-item-content {
+          display: flex;
+          flex-direction: column;
+          width: 80%;
+        }
+        a {
+          span {
+            font-family: $sub-font;
+            font-size: rem-calc(20);
+            line-height: rem-calc(24);
+          }
+        }
+        .image-wrap {
+          width: rem-calc(84);
+          border-radius: rem-calc(8);
+          height: rem-calc(85);
+          //margin-left: rem-calc(105);
+          position: relative;
+          .overlay {
+            &:hover {
+              background-color: rgba(0, 0, 0, .6);
+            }
+          }
+          img {
+            height: rem-calc(85);
+            border-radius: rem-calc(8);
+            object-fit: cover;
+          }
+        }
+        @include breakpoint(medium down) {
+          .image-wrap {
+            margin-left: rem-calc(10);
+            img {
+              margin: 0;
+            }
+          }
+        }
+      }
+      .media-article-item-categories {
+        margin-top: rem-calc(5);
+        display: flex;
+        .media-link {
+          display: block;
+          margin-bottom: rem-calc(8);
+          font-weight: 400;
+          span {
+            border-radius: rem-calc(43);
+            padding: rem-calc(0) rem-calc(5);
+            margin-right: rem-calc(8);
+            display: flex;
+            align-items: center;
+            height: rem-calc(24);
+            font-size: rem-calc(12);
+            svg {
+              width: rem-calc(14);
+              height: rem-calc(12);
+              margin-left: 0;
+            }
+          }
+          .post-category-audience {
+            background-color: $orange;
+          }
+          .post-category-second {
+            border: rem-calc(1) solid #79876D;
+            background: #f5a20000;
+            color: #79876D;
+            padding: rem-calc(5) rem-calc(10);
+            &:hover {
+              opacity: 0.5;
+              cursor: pointer;
+            }
+          }
+          .post-category-first {
+            padding: rem-calc(5) rem-calc(10);
+            background-color: $light-green;
+            border: none;
+            color: #131710;
+          }
+          .not-allow {
+            &:hover {
+              cursor: auto;
+              opacity: 1;
+            }
+          }
+        }
+
+          @include breakpoint(small down) {
+            .media-link {
+              span {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                text-wrap: nowrap;
+                display: block;
+                padding: rem-calc(5) rem-calc(10);
+              }
+              .post-category-audience {
+                padding: rem-calc(5);
+              }
+            }
+          }
+      }
+      @include breakpoint(large down) {
+        width: rem-calc(450);
+      }
+      @include breakpoint(medium down) {
+        width: 100%;
+        padding-top: rem-calc(24);
+        &:first-child {
+          padding-top: rem-calc(40);
+        }
+          .post-info-block {
+            flex-wrap: wrap;
+            svg {
+              margin-left: 0;
+            }
+          }
+          span {
+            text-wrap: balance;
+              &:before {
+                margin: 0 rem-calc(3);
+            }
+          }
+          img {
+            margin-left: rem-calc(8);
+          }
+        .media-article-item-categories {
+          flex-wrap: wrap;
+          margin-top: 0;
+          span {
+            margin-top: rem-calc(5);
+          }
+          .post-category-wrap {
+            display: flex;
+            flex-wrap: wrap;
+          }
+        }
+      }
+    }
+  }
+  .outline-button {
+    margin-top: rem-calc(40);
+    margin-bottom: rem-calc(8);
+    padding: 0 rem-calc(20);
+    @include breakpoint(medium down) {
+      margin-top: rem-calc(24);
+      margin-bottom: 0;
+    }
+  }
+  @include breakpoint(medium down) {
+    padding-top: rem-calc(12);
+    display: none;
+  }
+  @include breakpoint(small down) {
+    align-items: flex-start;
+  }
+}

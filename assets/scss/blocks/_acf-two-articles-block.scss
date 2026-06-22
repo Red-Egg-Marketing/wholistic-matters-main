@@ -1,0 +1,95 @@
+.acf-two-articles-block {
+  display: flex;
+  flex-direction: row;
+  padding-top: rem-calc(120);
+  padding-bottom: rem-calc(80);
+  justify-content: space-between;
+  .acf-article-item-wrap {
+    width: rem-calc(620);
+    .acf-article-item-image-wrap {
+      position: relative;
+      margin-bottom: rem-calc(30);
+      img {
+        width: 100%;
+        height: rem-calc(383);
+        object-fit: cover;
+        border-radius: rem-calc(16);
+      }
+      .overlay {
+        display: flex;
+        align-items: flex-end;
+        padding: rem-calc(24);
+        border-radius: rem-calc(16);
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+        span {
+          font-size: rem-calc(12);
+          background: $orange;
+          border-radius: rem-calc(43);
+          padding: 0 rem-calc(10);
+          display: flex;
+          align-items: center;
+          color: #131710;
+          height: rem-calc(24);
+          svg {
+            width: rem-calc(14);
+            height: rem-calc(14);
+            margin-right: rem-calc(4);
+          }
+        }
+      }
+      @include breakpoint(medium down) {
+        margin-bottom: rem-calc(24);
+      }
+    }
+    h2 {
+      font-size: rem-calc(36);
+      letter-spacing: rem-calc(-1);
+      line-height: 1.2;
+    }
+    .outline-button {
+      margin-top: rem-calc(40);
+      padding: 0 rem-calc(18);
+    }
+    @include breakpoint(large down) {
+      margin-left: rem-calc(30);
+    }
+  }
+  @include breakpoint(medium down) {
+    flex-direction: column;
+    padding-top: rem-calc(40);
+    .acf-article-item-wrap {
+      width: 100%;
+      margin-bottom: rem-calc(32);
+      margin-left: 0;
+      .acf-article-item-image-wrap {
+        img {
+          height: rem-calc(240);
+        }
+      }
+      h2 {
+        font-size: rem-calc(24);
+        line-height: rem-calc(36);
+      }
+      p {
+        font-size: rem-calc(16);
+        letter-spacing: rem-calc(0.2);
+        margin-bottom: rem-calc(0);
+      }
+      &:nth-child(2) {
+        h2 {
+          padding-right: rem-calc(105);
+        }
+      }
+    }
+  }
+  @include breakpoint(small down) {
+    flex-direction: column;
+    padding-bottom: 0;
+    .acf-article-item-wrap {
+      margin-bottom: rem-calc(60);
+      &:nth-child(2) {
+        margin-bottom: rem-calc(40);
+      }
+    }
+  }
+}

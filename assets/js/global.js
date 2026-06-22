@@ -724,24 +724,6 @@
 		}
 	}
 
-	function handleFirstTab( e ) {
-		var key = e.key || e.keyCode;
-		if ( key === 'Tab' || key === '9' ) {
-			$( 'body' ).removeClass( 'no-outline' );
-
-			window.removeEventListener( 'keydown', handleFirstTab );
-			window.addEventListener( 'mousedown', handleMouseDownOnce );
-		}
-	}
-
-	function handleMouseDownOnce() {
-		$( 'body' ).addClass( 'no-outline' );
-
-		window.removeEventListener( 'mousedown', handleMouseDownOnce );
-		window.addEventListener( 'keydown', handleFirstTab );
-	}
-
-	window.addEventListener( 'keydown', handleFirstTab );
 
 	// Fit slide video background to video holder
 	function resizeVideo() {

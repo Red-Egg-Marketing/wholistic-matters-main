@@ -160,12 +160,6 @@ a, button, .button, input[type='submit'], input[type='reset'], input[type='butto
 	Forms/Inputs
 --------------------------------------- */
 
-.no-outline {
-	button, a, [tabindex] {
-		outline: none;
-	}
-}
-
 /* Placeholder styling */
 
 input, textarea {
@@ -574,3 +568,9 @@ button, .button, input[type='submit'], input[type='reset'], input[type='button']
 .preview__title {
 	font-size: rem-calc(20);
 }
+
+  .single-article-content-left-description {
+      a:not(.outline-button):not(.wp-block-button__link) {
+          text-decoration: underline;
+      }
+  }

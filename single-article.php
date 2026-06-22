@@ -74,7 +74,7 @@ get_header(); ?>
             <?php if ($video_file): echo getYouTubeEmbedCode($video_file);
             elseif (wp_get_attachment_image(get_post_thumbnail_id(), 'full_hd', false, array('class' => '_wp_attachment_image_alt'))): echo wp_get_attachment_image(get_post_thumbnail_id(), 'full_hd', false, array('class' => '_wp_attachment_image_alt'));
             else: ?>
-                <img class="post-image placeholder-img" alt="placeholder"
+                <img class="post-image placeholder-img" alt=""
                      src="<?php echo get_template_directory_uri() . '/assets/images/placeholder.svg' ?>">
             <?php endif; ?>
 
@@ -113,7 +113,8 @@ get_header(); ?>
                         <audio class="audio-player" controls>
                             <source src="<?php echo $podcast ?>" type="audio/mpeg">
                         </audio>
-                        <a target="_blank" class="outline-button" href="<?php echo $podcast ?>">Download</a>
+                        <a target="_blank" class="outline-button" href="<?php echo esc_url( $podcast ); ?>" aria-label="Download podcast: <?php echo esc_attr( $post->post_title ); ?> (MP3)">Download</a>
+
                     </div>
                 <?php endif; ?>
                 <div class="tags-block">
@@ -214,12 +215,12 @@ get_header(); ?>
 
                         </div>
                         <?php if ($pdf_file): ?>
-                            <a target="_blank" class="outline-button" href="<?php echo $pdf_file ?>"
-                               download>Download</a>
+                           <a target="_blank" class="outline-button" href="<?php echo esc_url( $pdf_file ); ?>" download aria-label="Download PDF: <?php echo esc_attr( $post->post_title ); ?>">Download</a>
                         <?php endif; ?>
-                        <a class="share-button" href="#">
+                        <button type="button" class="share-button" aria-label="Share this article">
+
                             <?php echo return_svg(get_template_directory_uri() . '/assets/images/share.svg', 'share-icon') ?>
-                        </a>
+                        </button>
                         <?php get_template_part('parts/share-links'); ?>
                     </div>
                     <div class="single-article-content-left-description">

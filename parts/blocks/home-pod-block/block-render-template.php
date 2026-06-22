@@ -32,7 +32,7 @@ $courses_query = get_field('pod_list');
                         $link_title = $link['title'];
                         $link_target = $link['target'] ? $link['target'] : '_self';
                         ?>
-                        <a class="outline-button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?><?php echo $svg; ?></a>
+                        <a class="outline-button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" aria-label="Download <?php echo esc_attr( $title ); ?>"><?php echo esc_html( $link_title ); ?><?php echo $svg; ?></a>
                     <?php endif; ?>
 
                 </div>

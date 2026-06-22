@@ -902,7 +902,8 @@
 	//-------------------------------------------------------
 
 	$('#filter-media-button, #filter-media-button-mob').on('click', function (event) {
-		$('.sub-media-list').toggleClass('toggle')
+    	$(this).attr('aria-expanded', (i, v) => v === 'true' ? 'false' : 'true');
+    	$('.sub-media-list').toggleClass('toggle');
 	});
 	$('#navigation-title').on('click', function (event) {
 		$('.navigation-list').toggleClass('toggle');

@@ -1,0 +1,48 @@
+//  ┌────────────────────────────────────────────────────────┐
+//  │   Button reset — accessibility link→button conversions   │
+//  └────────────────────────────────────────────────────────┘
+//
+//  The controls below were <a> tags with no href (operated only by JS
+//  click handlers), which aren't keyboard-focusable or operable. They
+//  were converted to <button type="button"> for WCAG 2.1.1 (Keyboard)
+//  and 4.1.2 (Name, Role, Value) compliance.
+//
+//  A native <button> ships its own user-agent chrome — system font,
+//  buttonface background, bevelled border, default padding/margin, and
+//  centered text — none of which an inline <a> had. This resets that
+//  baseline so the existing component rules (.outline-button,
+//  .load-more-button, .filter-button, etc.) paint exactly as they did
+//  before the markup changed.
+//
+//  IMPORT ORDER MATTERS: pull this in early — after _base.scss but
+//  BEFORE the layout / _templates / block style partials — so component
+//  rules (equal single-class specificity) layer on top and win.
+//      @import 'base';
+//      @import 'button-reset';   // <-- here
+//      @import 'templates';
+//      ...block partials...
+
+#header-search-icon,
+.filter-button,
+.sub-media-item,
+.load-more-button,
+.outline-button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+    text-align: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+// Icon-only search toggle: keep the SVG centered in its hit area.
+#header-search-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}

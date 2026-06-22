@@ -55,10 +55,10 @@ array_unshift($terms, $term_custom);
     <section class="<?php echo starter_section_class( 'acf-custom-media-list-articles', $block ); ?>">
         <?php if (!$format) : ?>
             <div class="media-filter-section">
-                <a id="filter-media-button" class="filter-button"><span>All Media</span><?php display_svg(get_template_directory_uri().'/assets/images/arrow-down.svg', 'arrow-down-icon') ?></a>
+                <button type="button" id="filter-media-button" class="filter-button" aria-haspopup="true" aria-expanded="false"><span>All Media</span><?php display_svg(get_template_directory_uri().'/assets/images/arrow-down.svg', 'arrow-down-icon') ?></button>
                 <div class="sub-media-list">
                     <?php foreach ($terms as $term ) : ?>
-                        <a class="sub-media-item chose-item"><?php echo $term->name?></a>
+                        <button type="button" class="sub-media-item chose-item"><?php echo $term->name?></button>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -69,7 +69,7 @@ array_unshift($terms, $term_custom);
             <?php endforeach; ?>
             <?php wp_reset_postdata(); ?>
         </div>
-        <?php if ($query->found_posts > $posts_per_page): ?><a id="load-more-media" data-post-type="<?php if ($format->slug): echo $format->slug; else: echo ''; endif;?>" data-tax="format" data-posts_per_page="<?php echo $posts_per_page; ?>" class="outline-button">Load More</a><?php endif; ?>
+        <?php if ($query->found_posts > $posts_per_page): ?><button type="button" id="load-more-media" data-post-type="<?php if ($format->slug): echo $format->slug; else: echo ''; endif;?>" data-tax="format" data-posts_per_page="<?php echo $posts_per_page; ?>" class="outline-button">Load More</button><?php endif; ?>
     </section>
 <?php endif; ?>
 
@@ -77,10 +77,10 @@ array_unshift($terms, $term_custom);
     <section class="<?php echo starter_section_class( 'acf-custom-media-list-articles mobile-block', $block ); ?>">
         <?php if (!$format) : ?>
             <div class="media-filter-section">
-                <a id="filter-media-button" class="filter-button"><span>All Media</span><?php display_svg(get_template_directory_uri().'/assets/images/arrow-down.svg', 'arrow-down-icon') ?></a>
+                <button type="button" id="filter-media-button" class="filter-button" aria-haspopup="true" aria-expanded="false"><span>All Media</span><?php display_svg(get_template_directory_uri().'/assets/images/arrow-down.svg', 'arrow-down-icon') ?></button>
                 <div class="sub-media-list">
                     <?php foreach ($terms as $term ) : ?>
-                        <a class="sub-media-item chose-item"><?php echo $term->name?></a>
+                        <button type="button" class="sub-media-item chose-item"><?php echo $term->name?></button>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -91,6 +91,6 @@ array_unshift($terms, $term_custom);
             <?php endforeach; ?>
             <?php wp_reset_postdata(); ?>
         </div>
-        <?php if ($query->found_posts > $posts_per_page): ?><a id="load-more-media-mob" data-post-type="<?php if ($format->slug): echo $format->slug; else: echo ''; endif;?>" data-tax="format" data-posts_per_page="<?php echo $posts_per_page; ?>" class="outline-button">Load More</a><?php endif; ?>
+        <?php if ($query->found_posts > $posts_per_page): ?><button type="button" id="load-more-media-mob" data-post-type="<?php if ($format->slug): echo $format->slug; else: echo ''; endif;?>" data-tax="format" data-posts_per_page="<?php echo $posts_per_page; ?>" class="outline-button">Load More</button><?php endif; ?>
     </section>
 <?php endif; ?>

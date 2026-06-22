@@ -15,7 +15,7 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <!-- Set the viewport width to device width for mobile -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Remove Microsoft Edge's & Safari phone-email styling -->
     <meta name="format-detection" content="telephone=no,email=no,url=no">
     <!-- Color mobile browser tab -->

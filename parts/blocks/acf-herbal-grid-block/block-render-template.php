@@ -5,43 +5,32 @@
  * @var bool $is_preview True during AJAX preview.
  * @var int|string $post_id The post ID this block is saved to.
  */
-$arg = array(
+
+$args = array(
     'post_type' => 'herbal_glosarry',
-    'posts_per_page' => 10,
-
+    'posts_per_page' => 12,
 );
+$query = new WP_Query($args);
 
-$arg_mob = array(
-    'post_type' => 'herbal_glosarry',
-    'posts_per_page' => 4,
-
-);
-$query = new WP_Query($arg);
-$query_mob = new WP_Query($arg_mob);
 ?>
-
-<?php if( $query ): ?>
-    <section class="<?php echo starter_section_class( 'acf-herbal-grid-block', $block ); ?>">
-        <?php foreach ($query->posts as $post ) : ?>
-            <div class="grid-item-wrap">
-                <img alt="<?php echo get_post_meta( get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true)?>" src="<?php echo get_attached_img_url($post->ID) ?>">
-                <a href="<?php echo get_permalink( $post->ID ); ?>" class="overlay">
-                    <p><?php echo $post->post_title?></p>
-                </a>
+<section class="<?php echo starter_section_class( 'acf-search-herbal-block', $block ); ?>">
+    <?php if( $query->posts ): ?>
+        <div class="header-search">
+            <button type="button" id="header-search-icon" aria-label="<?php esc_attr_e( 'Search', 'default' ); ?>"><?php echo return_svg(get_template_directory_uri().'/assets/images/search-icon.svg', 'search-icon') ?></button>
+            <input id="herbal-search" placeholder="Search by herb, name, family, or use">
+        </div>
+        <div id="not-found" class="search-not-found" role="status" aria-live="polite">Nothing found, try with another word or phrase</div>
+        <div class="herbal-list-wrap">
+            <div class="herbal-list">
+                <?php foreach ($query->posts as $post ) :
+                    $alt = get_post_meta( get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true);
+                    $url = get_attached_img_url($post->ID);
+                    get_template_part( 'parts/loop', 'grid', ['id' => $post->ID, 'title' => $post->post_title, 'alt' => $alt, 'url' => $url ]);
+                ?>
+                <?php endforeach; ?>
+                <?php wp_reset_postdata(); ?>
             </div>
-        <?php endforeach; ?>
-    </section>
-<?php endif; ?>
-
-<?php if( $query_mob ): ?>
-    <section class="<?php echo starter_section_class( 'acf-herbal-grid-block mobile-block', $block ); ?>">
-        <?php foreach ($query_mob->posts as $post ) : ?>
-            <div class="grid-item-wrap">
-                <img alt="<?php echo get_post_meta( get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true)?>" src="<?php echo get_attached_img_url($post->ID) ?>">
-                <a href="<?php echo get_permalink( $post->ID ); ?>" class="overlay">
-                    <p><?php echo $post->post_title?></p>
-                </a>
-            </div>
-        <?php endforeach; ?>
-    </section>
-<?php endif; ?>
+            <button type="button" id="load-more-search" class="load-more-button outline-button">Load More</button>
+        </div>
+    <?php endif; ?>
+</section>

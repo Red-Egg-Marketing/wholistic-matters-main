@@ -569,11 +569,11 @@ function extractYouTubeVideoId($url) {
 
 }
 
-function getYouTubeEmbedCode($url) {
+function getYouTubeEmbedCode($url, $title = 'YouTube video player') {
     $videoId = extractYouTubeVideoId($url);
     if ($videoId) {
-        return '<iframe width="560" height="315" src="https://www.youtube.com/embed/' . htmlspecialchars($videoId) . '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+        return '<iframe title="' . esc_attr($title) . '" width="560" height="315" src="https://www.youtube.com/embed/' . htmlspecialchars($videoId) . '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     } else {
-        return '<iframe width="560" height="315" src="' . $url . '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+        return '<iframe title="' . esc_attr($title) . '" width="560" height="315" src="' . $url . '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     }
 }

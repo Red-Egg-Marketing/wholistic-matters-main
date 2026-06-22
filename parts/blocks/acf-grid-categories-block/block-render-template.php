@@ -95,7 +95,6 @@ $mob_category = array_slice($grid_categories, 0, 6);
                 <?php endif;?>
             <?php endforeach;?>
             </div>
-            <a id="load-more-grid" class="load-more-button outline-button">Load More</a>
+            <button type="button" id="load-more-grid" class="load-more-button outline-button">Load More</button>
         </section>
 <?php endif; ?>
-

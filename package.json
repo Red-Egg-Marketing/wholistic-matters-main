@@ -5,6 +5,9 @@
   "dependencies": {
     "foundation-sites": "~6.8.1"
   },
+  "overrides": {
+    "chokidar": "^3.6.0"
+  },
   "scripts": {
     "bs": "browser-sync start --config bs-config.js",
     "watch": "sass -w assets/scss/custom.scss:assets/css/custom.css --quiet-deps --source-map --style=compressed",

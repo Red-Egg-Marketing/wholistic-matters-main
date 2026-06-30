@@ -47,3 +47,24 @@
     align-items: center;
     justify-content: center;
 }
+
+button.filter-button {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;            // then re-add whatever the pill needs
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  text-align: inherit;   // buttons center text by default
+  cursor: pointer; 
+  .arrow-down-icon {
+    margin-left: 8px;
+    transform: translateY(-2px);
+  }
+  &:hover {
+    background: none;
+  }
+}

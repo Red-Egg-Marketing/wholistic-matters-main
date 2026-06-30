@@ -123,6 +123,7 @@
 		font-size: rem-calc(14);
 		font-weight: 400;
 		font-style: italic;
+		background: none;
 		&:hover {
 			color: $sub-color;
 			text-decoration: underline;

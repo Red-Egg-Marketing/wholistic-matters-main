@@ -274,7 +274,7 @@ if ( !empty( $_GET['id'] )) {
                                 <?php if (empty($article_excerpt )) : echo wp_strip_all_tags(get_the_content(null, true, $post->ID)); else: echo $article_excerpt; endif; ?>
                             </div>
                             <div class="article-item-image-wrap">
-                                <a class="overlay" href="<?php echo get_permalink($post->ID)?>"></a>
+                                <a class="overlay" href="<?php echo get_permalink($post->ID)?>" tabindex="-1" aria-hidden="true"></a>
                                 <img alt="<?php echo get_post_meta( get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true)?>"  class="<?php if(!get_attached_img_url($post->ID)) : echo 'placeholder-img'; endif; ?>" src="<?php if(get_attached_img_url($post->ID)): echo get_attached_img_url($post->ID); else: echo get_template_directory_uri().'/assets/images/placeholder.svg'; endif;?>">
                             </div>
                             <a class="article-button" href="<?php echo get_permalink($post->ID)?>"><?php if ($term_format[0]->slug === 'video') : echo 'Watch video'; elseif ( $term_format[0]->slug === 'podcast'): echo 'Listen to Podcast'; else: echo 'Read Article'; endif; display_svg(get_template_directory_uri().'/assets/images/arrow-button.svg', 'arrow-button') ?></a>
@@ -361,11 +361,11 @@ if ( !empty( $_GET['id'] )) {
     <?php if( $query->posts ): ?>
         <section class="acf-custom-media-list-articles">
             <div class="media-filter-section">
-                <a id="filter-media-button" class="filter-button"><span>All Media</span><?php display_svg(get_template_directory_uri().'/assets/images/arrow-down.svg', 'arrow-down-icon') ?></a>
+                <button id="filter-media-button" class="filter-button"><span>All Media</span><?php display_svg(get_template_directory_uri().'/assets/images/arrow-down.svg', 'arrow-down-icon') ?></button>
             </div>
             <div class="sub-media-list">
                 <?php foreach ($terms_format as $term_format ) : ?>
-                    <a class="sub-media-item chose-item" data-term-tax="<?php echo $term->taxonomy ?>" data-url_term_audience="<?php echo $url_term_audience; ?>" data-term-id="<?php echo $term->term_id ?>" data-term="<?php echo $term_format->slug?>"><?php echo $term_format->name?></a>
+                    <button class="sub-media-item chose-item" data-term-tax="<?php echo $term->taxonomy ?>" data-url_term_audience="<?php echo $url_term_audience; ?>" data-term-id="<?php echo $term->term_id ?>" data-term="<?php echo $term_format->slug?>"><?php echo $term_format->name?></button>
                 <?php endforeach; ?>
             </div>
             <div id="filter-media-list-articles" class="media-list-articles">
@@ -374,18 +374,18 @@ if ( !empty( $_GET['id'] )) {
                 <?php endforeach; ?>
                 <?php wp_reset_postdata(); ?>
             </div>
-            <?php if ($query->found_posts > $posts_per_page): ?><a id="load-more-media-all" data-term-tax="<?php echo $term->taxonomy ?>" data-term-id="<?php echo $term->term_id ?>"  data-url_term_audience="<?php echo $url_term_audience; ?>"  data-posts_per_page="<?php echo $posts_per_page; ?>" class="outline-button">Load More</a><?php endif; ?>
+            <?php if ($query->found_posts > $posts_per_page): ?><button id="load-more-media-all" data-term-tax="<?php echo $term->taxonomy ?>" data-term-id="<?php echo $term->term_id ?>"  data-url_term_audience="<?php echo $url_term_audience; ?>"  data-posts_per_page="<?php echo $posts_per_page; ?>" class="outline-button">Load More</button><?php endif; ?>
         </section>
     <?php endif; ?>
 
     <?php if( $query_mob->posts ): ?>
         <section class="acf-custom-media-list-articles mobile-block">
             <div class="media-filter-section">
-                <a id="filter-media-button-mob" class="filter-button"><span>All Media</span><?php display_svg(get_template_directory_uri().'/assets/images/arrow-down.svg', 'arrow-down-icon') ?></a>
+                <button id="filter-media-button-mob" class="filter-button"><span>All Media</span><?php display_svg(get_template_directory_uri().'/assets/images/arrow-down.svg', 'arrow-down-icon') ?></button>
             </div>
             <div class="sub-media-list">
                 <?php foreach ($terms_format as $term_format ) : ?>
-                    <a class="sub-media-item chose-item-mob" data-term-tax="<?php echo $term->taxonomy ?>" data-url_term_audience="<?php echo $url_term_audience; ?>" data-term-id="<?php echo $term->term_id ?>" data-term="<?php echo $term_format->slug?>"><?php echo $term_format->name?></a>
+                    <button class="sub-media-item chose-item-mob" data-term-tax="<?php echo $term->taxonomy ?>" data-url_term_audience="<?php echo $url_term_audience; ?>" data-term-id="<?php echo $term->term_id ?>" data-term="<?php echo $term_format->slug?>"><?php echo $term_format->name?></button>
                 <?php endforeach; ?>
             </div>
             <div id="filter-media-list-articles-mob" class="media-list-articles">
@@ -395,7 +395,7 @@ if ( !empty( $_GET['id'] )) {
                 <?php wp_reset_postdata(); ?>
             </div>
 
-            <?php if ($query_mob->found_posts > $posts_per_page): ?><a id="load-more-media-all-mob" data-term-tax="<?php echo $term->taxonomy ?>" data-term-id="<?php echo $term->term_id ?>" data-url_term_audience="<?php echo $url_term_audience; ?>"  data-posts_per_page="<?php echo $posts_per_page; ?>" class="outline-button">Load More</a><?php endif; ?>
+            <?php if ($query_mob->found_posts > $posts_per_page): ?><button id="load-more-media-all-mob" data-term-tax="<?php echo $term->taxonomy ?>" data-term-id="<?php echo $term->term_id ?>" data-url_term_audience="<?php echo $url_term_audience; ?>"  data-posts_per_page="<?php echo $posts_per_page; ?>" class="outline-button">Load More</button><?php endif; ?>
         </section>
     <?php endif; ?>
 </main>

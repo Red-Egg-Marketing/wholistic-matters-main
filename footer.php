@@ -48,7 +48,7 @@ $socials_title = get_field('socials_title', 'options');
         <div class="contact-block">
             <h2 class="contact-block-title"><?php echo $footer_contact_title; ?></h2>
 <!--            <a class="contact-block-email" href="mailto:--><?php //echo $footer_contact_email?><!--">--><?php //echo $footer_contact_email; ?><!--</a>-->
-            <a class="contact-block-email show-email">Click to show email</a>
+            <button type="button" class="contact-block-email show-email">Click to show email</button>
         </div>
         <div class="newsletter-form-wrap <?php if(is_page('legal') || is_page('about-us') || is_page('contact-us')): echo 'desktop-form'; endif;?>">
             <h2 class="form_title">Sign up for emails</h2>

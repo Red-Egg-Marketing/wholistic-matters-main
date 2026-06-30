@@ -1465,7 +1465,7 @@ function show_footer_email() {
     $footer_contact_email = get_field('footer_contact_email', 'options');
     ob_start();
 
-    echo '<a class="contact-block-email" href="mailto:'.$footer_contact_email.'">'.$footer_contact_email.'</a>';
+    echo '<button type="button" class="contact-block-email" href="mailto:'.$footer_contact_email.'">'.$footer_contact_email.'</button>';
 
     $output = ob_get_clean();
 
@@ -1909,4 +1909,50 @@ add_filter('the_content', function ($content) {
 
     return $content;
 });
+
+
+/**
+ * Give core's image-lightbox buttons a crawler-visible accessible name.
+ * Core sets it at runtime via the Interactivity API; this mirrors that
+ * statically from the figure's <img> alt so static scans don't flag 4.1.2.
+ */
+function lightbox_label_lightbox_buttons( $content ) {
+	if ( strpos( $content, 'lightbox-trigger' ) === false ) {
+		return $content; // cheap bail — most content has none
+	}
+
+	$dom = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$dom->loadHTML(
+		'<?xml encoding="utf-8"?>' . $content,
+		LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD
+	);
+	libxml_clear_errors();
+
+	$xpath   = new DOMXPath( $dom );
+	$buttons = $xpath->query( "//button[contains(concat(' ', normalize-space(@class), ' '), ' lightbox-trigger ')]" );
+
+	foreach ( $buttons as $button ) {
+		if ( $button->hasAttribute( 'aria-label' ) ) {
+			continue;
+		}
+		$figure = $xpath->query( 'ancestor::figure[1]', $button )->item( 0 );
+		$alt    = '';
+
+		if ( $figure ) {
+			$img = $xpath->query( './/img[@alt]', $figure )->item( 0 );
+			if ( $img ) {
+				$alt = trim( $img->getAttribute( 'alt' ) );
+			}
+		}
+		$label = '' !== $alt
+			? sprintf( esc_attr__( 'Enlarge image: %s', 'red-egg' ), $alt )
+			: esc_attr__( 'Enlarge image', 'red-egg' );
+		$button->setAttribute( 'aria-label', $label );
+	}
+
+	$html = $dom->saveHTML();
+	return preg_replace( '/^<\?xml.*?\?>\s*/', '', $html ); // drop the encoding prolog
+}
+add_filter( 'the_content', 'lightbox_label_lightbox_buttons', 20 );
 

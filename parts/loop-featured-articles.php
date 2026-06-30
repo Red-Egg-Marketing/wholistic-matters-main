@@ -72,7 +72,7 @@ foreach ($labels as $label) {
             </div>
 		</div>
         <div class="medium-3 small-4 cell text-right medium-text-right image-wrap">
-            <a class="overlay" href="<?php echo get_permalink($args['id'])?>"></a>
+            <a class="overlay" href="<?php echo get_permalink($args['id'])?>" tabindex="-1" aria-hidden="true"></a>
             <img class="post-image <?php if(!get_attached_img_url($args['id'])) : echo 'placeholder-img'; endif; ?>" alt="<?php echo get_post_meta( get_post_thumbnail_id($args['id']), '_wp_attachment_image_alt', true)?>" src="<?php if(get_attached_img_url($args['id'])) :  echo get_attached_img_url($args['id']); else: echo get_template_directory_uri().'/assets/images/placeholder.jpg'; endif;?>">
         </div>
 	</div>

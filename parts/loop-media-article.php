@@ -33,7 +33,7 @@ foreach ($labels as $label) {
             <a class="media-link" href="<?php echo get_permalink($args['id'])?>"><span><?php echo $post->post_title?></span></a>
         </div>
         <div class="image-wrap">
-            <a class="overlay" href="<?php echo get_permalink($args['id'])?>"></a>
+            <a class="overlay" href="<?php echo get_permalink($args['id'])?>" tabindex="-1" aria-hidden="true"></a>
             <img alt="<?php echo get_post_meta( get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true)?>" class="<?php if(!get_attached_img_url($post->ID)) : echo 'placeholder-img'; endif; ?>" src="<?php if(get_attached_img_url($post->ID)): echo get_attached_img_url($post->ID); else: echo get_template_directory_uri().'/assets/images/placeholder.svg'; endif;?>">
         </div>
     </div>

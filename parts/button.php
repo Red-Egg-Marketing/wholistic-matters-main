@@ -25,8 +25,8 @@ if ( $link_type == 'int' && $link_id ) {
 }
 
 if ( $link_type == 'int' && $link && ! is_wp_error( $link ) ): ?>
-	<a href="<?php echo $link; ?>" class="<?php echo $class; ?>"><?php echo $link_text; ?></a>
+	<a href="<?php echo $link; ?>" aria-label="<?php echo $link_text; ?> on our <?php echo get_the_title($link_id); ?> page"  class="<?php echo $class; ?>"><?php echo $link_text; ?></a>
 <?php elseif ( $link_type == 'ext' && $link && ! is_wp_error( $link ) ): ?>
-	<a href="<?php echo $link['url']; ?>"
+	<a href="<?php echo $link['url']; ?>" aria-label="<?php echo $link_text; ?> at"
 	   class="<?php echo $class; ?>" <?php echo $link['target'] ? 'target="_blank"' : ''; ?>><?php echo $link['title']; ?></a>
 <?php endif; ?>

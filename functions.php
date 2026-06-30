@@ -1956,3 +1956,70 @@ function lightbox_label_lightbox_buttons( $content ) {
 }
 add_filter( 'the_content', 'lightbox_label_lightbox_buttons', 20 );
 
+
+/**
+ * Give generic-text core/button links a descriptive accessible name.
+ *
+ * Context source, in priority order:
+ *   1. Editor-supplied "Link destination" field (accessibleLabel attribute).
+ *   2. Resolved title of a local post / page / media item.
+ *   3. The external domain — no network call — with a new-tab note if relevant.
+ * If none yield usable context, the button is left untouched rather than
+ * labelled with a slug or tracking string.
+ *
+ * Visible text is always kept at the front of the label so WCAG 2.5.3
+ * (Label in Name) holds.
+ */
+function screen_reader_prevent_generic_buttons( $block_content, $block ) {
+	$p = new WP_HTML_Tag_Processor( $block_content );
+	if ( ! $p->next_tag( 'a' ) || $p->get_attribute( 'aria-label' ) ) {
+		return $block_content; // no link, or already named
+	}
+
+	$visible = trim( wp_strip_all_tags( $block_content ) );
+
+	// 1. Editor-supplied destination always wins.
+	$context = isset( $block['attrs']['accessibleLabel'] )
+		? trim( $block['attrs']['accessibleLabel'] )
+		: '';
+
+	if ( '' === $context ) {
+		// Only auto-name buttons whose visible text is non-descriptive.
+		$generic = array( 'learn more', 'read more', 'click here', 'view more', 'download', 'download pdf', 'more', 'go' );
+		if ( ! in_array( strtolower( $visible ), $generic, true ) ) {
+			return $block_content; // already descriptive — leave it
+		}
+
+		$url = $p->get_attribute( 'href' );
+
+		// 2. Resolve a local post / page / media title.
+		if ( $url ) {
+			$pid = url_to_postid( $url ) ?: attachment_url_to_postid( $url );
+			if ( $pid ) {
+				$context = get_the_title( $pid );
+			}
+		}
+
+		// 3. External link → use the domain (no network call).
+		if ( '' === $context && $url ) {
+			$host = wp_parse_url( $url, PHP_URL_HOST );
+			$home = wp_parse_url( home_url(), PHP_URL_HOST );
+			if ( $host && $host !== $home ) {
+				$context = preg_replace( '/^www\./', '', $host );
+				if ( '_blank' === $p->get_attribute( 'target' ) ) {
+					$context .= ' (opens in new tab)';
+				}
+			}
+		}
+
+		// Nothing reliable → leave the button alone.
+		if ( '' === $context ) {
+			return $block_content;
+		}
+	}
+
+	$p->set_attribute( 'aria-label', $visible . ': ' . $context );
+	return $p->get_updated_html();
+}
+add_filter( 'render_block_core/button', 'screen_reader_prevent_generic_buttons', 10, 2 );
+

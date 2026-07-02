@@ -19,7 +19,7 @@ $query = new WP_Query($args);
             <a id="header-search-icon"><?php echo return_svg(get_template_directory_uri().'/assets/images/search-icon.svg', 'search-icon') ?></a>
             <input id="herbal-search" placeholder="Search by herb, name, family, or use">
         </div>
-        <a id="not-found" class="search-not-found">Nothing found, try with another word or phrase</a>
+        <span id="not-found" class="search-not-found">Nothing found, try with another word or phrase</span>
         <div class="herbal-list-wrap">
             <div class="herbal-list">
                 <?php foreach ($query->posts as $post ) :

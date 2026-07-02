@@ -1298,4 +1298,22 @@
 			}
 		});
 	})
+
+		/**
+	 * Foundation's DropdownMenu/AccordionMenu inject ARIA application-menu roles
+	 * (menubar/menu/menuitem) onto the nav at init, and re-inject them on every
+	 * breakpoint re-init. That pattern is wrong for a link nav and leaves an
+	 * orphaned `menuitem` (no matching menu/menubar parent). Strip the roles back
+	 * to native <nav><ul><li><a> semantics.
+	 */
+	function stripFoundationMenuRoles() {
+		$( '#main-menu' )
+			.find( '[role="menubar"], [role="menu"], [role="menuitem"]' )
+			.removeAttr( 'role' );
+	}
+	
+	$( window ).on( 'load', stripFoundationMenuRoles );
+	$( window ).on( 'changed.zf.mediaquery', function () {
+		setTimeout( stripFoundationMenuRoles, 0 ); // run after Foundation re-inits
+	} );
 }( jQuery ));

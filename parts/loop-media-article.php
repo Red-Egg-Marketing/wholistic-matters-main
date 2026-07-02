@@ -64,7 +64,7 @@ foreach ($labels as $label) {
             <?php if (count($query_posts->posts) > 3): ?>
                 <a class="media-link" href="<?php echo get_category_link($term_cat[0]->term_id).'?id='.$term_audience[0]->slug?>"><span class="post-category-first"><?php echo $term_cat[0]->name; ?></span></a>
             <?php else: ?>
-                <a class="media-link not-allow"><span class="post-category-first not-allow"><?php echo $term_cat[0]->name; ?></span></a>
+                <span class="media-link not-allow"><span class="post-category-first not-allow"><?php echo $term_cat[0]->name; ?></span></span>
             <?php endif; ?>
          <?php endif; ?>
 
@@ -93,7 +93,7 @@ foreach ($labels as $label) {
             <?php if (count($query_posts->posts) > 3): ?>
             <a class="media-link" href="<?php echo get_category_link($term_cat[1]->term_id).'?id='.$term_audience[0]->slug ?>"><span class="post-category-second"><?php echo $term_cat[1]->name; ?></span></a>
         <?php else: ?>
-            <a class="media-link not-allow"><span class="post-category-second not-allow"><?php echo $term_cat[1]->name; ?></span></a>
+            <span class="media-link not-allow"><span class="post-category-second not-allow"><?php echo $term_cat[1]->name; ?></span></span>
         <?php endif; ?>
         <?php endif; ?>
     </div>

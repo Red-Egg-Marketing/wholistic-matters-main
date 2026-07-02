@@ -49,6 +49,10 @@ include_once get_stylesheet_directory() . '/inc/class-dynamic-admin.php';
 include_once get_stylesheet_directory() . '/inc/svg-support.php';
 // Extend WP Search with Custom fields
 include_once get_stylesheet_directory() . '/inc/custom-fields-search.php';
+// Filter for images and ADA 
+include_once get_stylesheet_directory() . '/inc/image-filter.php';
+// Filter for empty links
+include_once get_stylesheet_directory() . '/inc/link-filter.php';
 // WooCommerce functionality
 if ( function_exists( 'WC' ) ) {
 	include_once get_stylesheet_directory() . '/inc/woo-custom.php';
@@ -1962,15 +1966,16 @@ add_filter( 'the_content', 'lightbox_label_lightbox_buttons', 20 );
  *
  * Context source, in priority order:
  *   1. Editor-supplied "Link destination" field (accessibleLabel attribute).
- *   2. Resolved title of a local post / page / media item.
- *   3. The external domain — no network call — with a new-tab note if relevant.
+ *   2. A linked file's name (PDF, doc, etc.) — reads well for downloads.
+ *   3. Resolved title of a local post / page.
+ *   4. The external domain — no network call — for off-site links.
  * If none yield usable context, the button is left untouched rather than
  * labelled with a slug or tracking string.
  *
  * Visible text is always kept at the front of the label so WCAG 2.5.3
  * (Label in Name) holds.
  */
-function screen_reader_prevent_generic_buttons( $block_content, $block ) {
+function screen_reader_name_generic_buttons( $block_content, $block ) {
 	$p = new WP_HTML_Tag_Processor( $block_content );
 	if ( ! $p->next_tag( 'a' ) || $p->get_attribute( 'aria-label' ) ) {
 		return $block_content; // no link, or already named
@@ -1978,36 +1983,47 @@ function screen_reader_prevent_generic_buttons( $block_content, $block ) {
 
 	$visible = trim( wp_strip_all_tags( $block_content ) );
 
-	// 1. Editor-supplied destination always wins.
+	// 1. Editor-supplied destination always wins (used verbatim).
 	$context = isset( $block['attrs']['accessibleLabel'] )
 		? trim( $block['attrs']['accessibleLabel'] )
 		: '';
 
 	if ( '' === $context ) {
 		// Only auto-name buttons whose visible text is non-descriptive.
-		$generic = array( 'learn more', 'read more', 'click here', 'view more', 'download', 'download pdf', 'more', 'go' );
+		$generic = array( 'learn more', 'read more', 'click here', 'view more', 'download', 'download pdf', 'more', 'go', 'register here' );
 		if ( ! in_array( strtolower( $visible ), $generic, true ) ) {
 			return $block_content; // already descriptive — leave it
 		}
 
 		$url = $p->get_attribute( 'href' );
 
-		// 2. Resolve a local post / page / media title.
-		if ( $url ) {
-			$pid = url_to_postid( $url ) ?: attachment_url_to_postid( $url );
-			if ( $pid ) {
-				$context = get_the_title( $pid );
-			}
+		// Normalise a root-relative URL to absolute so the resolvers can match.
+		if ( $url && isset( $url[0] ) && '/' === $url[0] && ! str_starts_with( $url, '//' ) ) {
+			$url = home_url( $url );
 		}
 
-		// 3. External link → use the domain (no network call).
-		if ( '' === $context && $url ) {
-			$host = wp_parse_url( $url, PHP_URL_HOST );
-			$home = wp_parse_url( home_url(), PHP_URL_HOST );
-			if ( $host && $host !== $home ) {
-				$context = preg_replace( '/^www\./', '', $host );
-				if ( '_blank' === $p->get_attribute( 'target' ) ) {
-					$context .= ' (opens in new tab)';
+		if ( $url ) {
+			$path = (string) wp_parse_url( $url, PHP_URL_PATH );
+
+			// 2. Linked file → derive a clean name from the filename.
+			if ( preg_match( '/\.(pdf|docx?|xlsx?|pptx?|zip|csv|txt)$/i', $path ) ) {
+				$file    = pathinfo( $path, PATHINFO_FILENAME ); // "Detox-Infographic-Final"
+				$context = ucwords( str_replace( array( '-', '_' ), ' ', rawurldecode( $file ) ) );
+
+			} else {
+				// 3. Local post / page title.
+				$pid = url_to_postid( $url );
+				if ( $pid ) {
+					$context = get_the_title( $pid );
+				}
+
+				// 4. Off-site link → use the domain (no network call).
+				if ( '' === $context ) {
+					$host = wp_parse_url( $url, PHP_URL_HOST );
+					$home = wp_parse_url( home_url(), PHP_URL_HOST );
+					if ( $host && $host !== $home ) {
+						$context = preg_replace( '/^www\./', '', $host );
+					}
 				}
 			}
 		}
@@ -2016,10 +2032,14 @@ function screen_reader_prevent_generic_buttons( $block_content, $block ) {
 		if ( '' === $context ) {
 			return $block_content;
 		}
+
+		// Note new-tab links (applies to any auto-derived context).
+		if ( '_blank' === $p->get_attribute( 'target' ) ) {
+			$context .= ' (opens in new tab)';
+		}
 	}
 
 	$p->set_attribute( 'aria-label', $visible . ': ' . $context );
 	return $p->get_updated_html();
 }
-add_filter( 'render_block_core/button', 'screen_reader_prevent_generic_buttons', 10, 2 );
-
+add_filter( 'render_block_core/button', 'screen_reader_name_generic_buttons', 10, 2 );

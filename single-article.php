@@ -179,7 +179,7 @@ get_header(); ?>
                             <a href="<?php echo get_category_link($term_cat[1]->term_id) . "?id=" . $term_audience[0]->slug ?>"><span
                                         class="post-category-second"><?php echo $term_cat[1]->name; ?></span></a>
                         <?php else: ?>
-                            <a><span class="post-category-second not-allow"><?php echo $term_cat[1]->name; ?></span></a>
+                            <div class="cat-holder"><span class="post-category-second not-allow"><?php echo $term_cat[1]->name; ?></span></div>
                         <?php endif; ?>
                         <?php endif; ?>
                     </div>
@@ -244,6 +244,9 @@ get_header(); ?>
                             <?php while (have_rows('references')): the_row();
                                 $reference_title = get_sub_field('reference_title');
                                 $references_content = get_sub_field('references_content');
+                                if ( '' === trim( (string) $reference_title ) ) {
+                                    continue;
+                                }
                                 ?>
                                 <div class="accordion-item" data-accordion-item>
                                     <a href="#" class="accordion-title"><?php echo $reference_title; ?></a>
@@ -281,6 +284,9 @@ get_header(); ?>
                         <?php while (have_rows('navigation')): the_row();
                             $navigation_title = get_sub_field('navigation_title');
                             $navigation_href = get_sub_field('navigation_href');
+                            if ( '' === trim( (string) $navigation_title ) ) {
+                                    continue;
+                            }
                             ?>
                             <li>
                                 <a href="#<?php echo $navigation_href; ?>"><?php display_svg(get_template_directory_uri() . '/assets/images/arrow-button.svg', 'arrow-button') ?>

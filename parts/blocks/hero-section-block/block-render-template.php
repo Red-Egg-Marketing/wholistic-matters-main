@@ -15,7 +15,7 @@ $hero_button = get_field('hero_button');
         <h1><?php echo $hero_title; ?></h1>
         <p><?php echo $description; ?></p>
         <?php if($hero_button): ?>
-            <a target="<?php echo $hero_button['target']?>" href="<?php echo $hero_button['url']?>" class="outline-button"><?php echo $hero_button['title']; echo return_svg(get_template_directory_uri().'/assets/images/arrow-button.svg', 'arrow-button')?></a>
+            <a target="<?php echo $hero_button['target']?>" tabindex="0" href="<?php echo $hero_button['url']?>" class="outline-button"><?php echo $hero_button['title']; echo return_svg(get_template_directory_uri().'/assets/images/arrow-button.svg', 'arrow-button')?></a>
         <?php endif; ?>
     </div>
 </section>

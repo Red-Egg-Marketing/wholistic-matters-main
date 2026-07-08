@@ -148,7 +148,7 @@ get_header(); ?>
                             <a href="<?php echo get_category_link($term_cat[0]->term_id) . "?id=" . $term_audience[0]->slug ?>"><span
                                         class="post-category-first"><?php echo $term_cat[0]->name; ?></span></a>
                         <?php else: ?>
-                            <a><span class="post-category-first not-allow"><?php echo $term_cat[0]->name; ?></span></a>
+                            <div class="cat-holder"><span class="post-category-first not-allow"><?php echo $term_cat[0]->name; ?></span></div>
                         <?php endif; ?>
                         <?php endif; ?>
                         <?php if ($term_cat[1]) :

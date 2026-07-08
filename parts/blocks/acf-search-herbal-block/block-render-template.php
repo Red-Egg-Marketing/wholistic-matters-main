@@ -30,7 +30,7 @@ $query = new WP_Query($args);
                 <?php endforeach; ?>
                 <?php wp_reset_postdata(); ?>
             </div>
-            <a id="load-more-search" class="load-more-button outline-button">Load More</a>
+            <button id="load-more-search" class="load-more-button outline-button">Load More</button>
         </div>
     <?php endif; ?>
 </section>

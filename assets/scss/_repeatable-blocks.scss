@@ -625,7 +625,7 @@ section {
 				}
 
 			}
-			a {
+			a, .no-link {
 				max-width: rem-calc(230);
 				color: #131710;
 				&:hover {

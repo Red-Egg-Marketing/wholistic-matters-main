@@ -26,8 +26,8 @@ class Walker_Navigation extends Walker_Nav_Menu {
         $featured_image = get_the_post_thumbnail_url($item->object_id);
         $alt_text = get_post_meta(get_post_thumbnail_id($item->object_id), '_wp_attachment_image_alt', true);
         $image = get_field('category_image', $item->object . '_' . $item->object_id);
-        $image_url = $image['url'];
-        $image_alt = $image['alt'];
+        $image_url = is_array($image) ? ($image['url'] ?? '') : '';
+        $image_alt = is_array($image) ? ($image['alt'] ?? '') : '';
         $submenu_type = get_field('submenu_type', $item->menu_item_parent);
         if ($depth === 2) {
             if(!$image) {

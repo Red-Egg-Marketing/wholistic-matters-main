@@ -108,7 +108,7 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
                 font-size: 1rem;
                 line-height: 1;
                 color: #fff;
-                background-image: url("/wp-content/themes/wholisticmatters/assets/images/Line%201.svg");
+                background-image: url("/wp-content/themes/wholistic-matters-main/assets/images/Line%201.svg");
                 background-repeat: no-repeat;
                 background-position: 5.7rem center;
                 &:hover {
@@ -197,7 +197,7 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
                 font-size: 1rem;
                 line-height: 1;
                 color: #fff;
-                background-image: url("/wp-content/themes/wholisticmatters/assets/images/Line%201.svg");
+                background-image: url("/wp-content/themes/wholistic-matters-main/assets/images/Line%201.svg");
                 background-repeat: no-repeat;
                 background-position: 5.7rem center;
                 &:hover {
@@ -288,7 +288,7 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
                 font-size: 1rem;
                 line-height: 1;
                 color: #fff;
-                background-image: url("/wp-content/themes/wholisticmatters/assets/images/Line%201.svg");
+                background-image: url("/wp-content/themes/wholistic-matters-main/assets/images/Line%201.svg");
                 background-repeat: no-repeat;
                 background-position: 5.7rem center;
                 &:hover {
@@ -376,7 +376,7 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
                 font-size: 1rem;
                 line-height: 1;
                 color: #fff;
-                background-image: url("/wp-content/themes/wholisticmatters/assets/images/Line%201.svg");
+                background-image: url("/wp-content/themes/wholistic-matters-main/assets/images/Line%201.svg");
                 background-repeat: no-repeat;
                 background-position: 5.7rem center;
                 &:hover {
@@ -492,7 +492,7 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
                 font-size: 1rem;
                 line-height: 1;
                 color: #fff;
-                background-image: url("/wp-content/themes/wholisticmatters/assets/images/Line%201.svg");
+                background-image: url("/wp-content/themes/wholistic-matters-main/assets/images/Line%201.svg");
                 background-repeat: no-repeat;
                 background-position: 5.7rem center;
                 &:hover {
@@ -608,7 +608,7 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
                 font-size: 1rem;
                 line-height: 1;
                 color: #fff;
-                background-image: url("/wp-content/themes/wholisticmatters/assets/images/Line%201.svg");
+                background-image: url("/wp-content/themes/wholistic-matters-main/assets/images/Line%201.svg");
                 background-repeat: no-repeat;
                 background-position: 5.7rem center;
                 &:hover {
@@ -679,7 +679,7 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
         <!--                font-size: 1rem;-->
         <!--                line-height: 1;-->
         <!--                color: #fff;-->
-        <!--                background-image: url("/wp-content/themes/wholisticmatters/assets/images/Line%201.svg");-->
+        <!--                background-image: url("/wp-content/themes/wholistic-matters-main/assets/images/Line%201.svg");-->
         <!--                background-repeat: no-repeat;-->
         <!--                background-position: 5.7rem center;-->
         <!--                &:hover {-->

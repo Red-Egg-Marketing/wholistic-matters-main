@@ -501,7 +501,7 @@
 				removeInputPlaceholderOnFocus( this );
 			} );
 			if($("#validation_message_" + form_id+ "_5").length && $("#input_" + form_id+ "_5").val().length) {
-				$('#gform_submit_button_' + form_id).attr('src','/wp-content/themes/wholisticmatters/assets/images/cross.svg');
+				$('#gform_submit_button_' + form_id).attr('src','/wp-content/themes/wholistic-matters-main/assets/images/cross.svg');
 				$('#gform_' + form_id+ ' .gform_footer.top_label').append('<div class="cross-error ' +form_id + '"></div>');
 				$('.cross-error').css('display', 'block');
 			}
@@ -509,7 +509,7 @@
 		$(document).on('click', '.cross-error', function () {
 			let formId = $(this)[0].classList[1];
 			$("#input_"+ formId + "_5").val('');
-			$('#gform_submit_button_' + formId).attr('src','/wp-content/themes/wholisticmatters/assets/images/arrow-button.svg');
+			$('#gform_submit_button_' + formId).attr('src','/wp-content/themes/wholistic-matters-main/assets/images/arrow-button.svg');
 			$(this).css('display', 'none');
 		});
 		$( document ).on( 'click', '.s-qty-dec,.s-qty-inc', function() {
@@ -1311,7 +1311,7 @@
 			.find( '[role="menubar"], [role="menu"], [role="menuitem"]' )
 			.removeAttr( 'role' );
 	}
-	
+
 	$( window ).on( 'load', stripFoundationMenuRoles );
 	$( window ).on( 'changed.zf.mediaquery', function () {
 		setTimeout( stripFoundationMenuRoles, 0 ); // run after Foundation re-inits

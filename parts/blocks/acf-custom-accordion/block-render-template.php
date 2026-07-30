@@ -39,7 +39,7 @@ $has_list = have_rows('accordion_list');
                             $accordion_image = get_sub_field('accordion_image');
                             $accordion_link = get_sub_field('accordion_link');
                             $accordion_cta_button = get_sub_field('accordion_cta_button');
-							
+
                             ?>
                             <div class="accordion-content-item">
                                 <div class="accordion-text">
@@ -70,11 +70,11 @@ $has_list = have_rows('accordion_list');
                                                 <?php echo esc_html($accordion_cta_button['title']); ?>
                                                 <img decoding="async" class="wp-image-235 entered lazyloaded"
                                                      style="width: 15px;"
-                                                     src="https://wholisticmatters.com/wp-content/themes/wholisticmatters/assets/images/Line%201.svg"
+                                                     src="https://wholisticmatters.com/wp-content/themes/wholistic-matters-main/assets/images/Line%201.svg"
                                                      alt="">
                                                 <noscript>
                                                     <img decoding="async" class="wp-image-235" style="width: 15px;"
-                                                         src="https://wholisticmatters.com/wp-content/themes/wholisticmatters/assets/images/Line%201.svg"
+                                                         src="https://wholisticmatters.com/wp-content/themes/wholistic-matters-main/assets/images/Line%201.svg"
                                                          alt="">
                                                 </noscript>
                                             </a>
@@ -85,28 +85,28 @@ $has_list = have_rows('accordion_list');
                         <?php endwhile; ?>
                     </div>
                 <?php endif; ?>
-				
+
 					<?php if ($accordion_main_cta_button): ?>
 						<div class="accordion_cta_button2">
-							<a class="wp-block-button__link wp-element-button" 
-							   href="<?php echo esc_url($accordion_main_cta_button['url']); ?>" 
+							<a class="wp-block-button__link wp-element-button"
+							   href="<?php echo esc_url($accordion_main_cta_button['url']); ?>"
 							   target="<?php echo esc_attr($accordion_main_cta_button['target'] ?? '_self'); ?>">
 								<?php echo esc_html($accordion_main_cta_button['title']); ?>
-								<img class="wp-image-235 entered lazyloaded" 
-									 style="width: 15px;" 
-									 src="https://wholisticmatters.com/wp-content/themes/wholisticmatters/assets/images/Line%201.svg" 
+								<img class="wp-image-235 entered lazyloaded"
+									 style="width: 15px;"
+									 src="https://wholisticmatters.com/wp-content/themes/wholistic-matters-main/assets/images/Line%201.svg"
 									 alt=""
 									 data-ll-status="loaded" />
 								<noscript>
-									<img class="wp-image-235" style="width: 15px;" 
-										 src="https://wholisticmatters.com/wp-content/themes/wholisticmatters/assets/images/Line%201.svg" 
+									<img class="wp-image-235" style="width: 15px;"
+										 src="https://wholisticmatters.com/wp-content/themes/wholistic-matters-main/assets/images/Line%201.svg"
 										 alt="">
 								</noscript>
 							</a>
 						</div>
 					<?php endif; ?>
 
-				
+
 
                 <?php if ($accordion_conclusion): ?>
                     <div class="accordion-description-wrap">

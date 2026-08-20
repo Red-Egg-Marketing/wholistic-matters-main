@@ -714,6 +714,11 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
             <?php endwhile; ?>
         </ul>
     <?php endif; ?>
+    <?php if( get_field('toggle_header_banner', 'option') ): ?>
+        <div class="header-banner ">
+            <?php echo get_field('header_banner', 'option'); ?>
+        </div>
+    <?php endif; ?>
     <div class="header-content">
         <div class="logo text-center medium-text-left">
             <h1><?php show_custom_logo(); ?><span class="css-clip"><?php echo get_bloginfo( 'name' ); ?></span></h1>

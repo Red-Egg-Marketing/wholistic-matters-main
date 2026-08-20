@@ -1,0 +1,19 @@
+{
+  "$schema": "https://advancedcustomfields.com/schemas/json/main/block.json",
+  "name": "ce-sidebar-block",
+  "title": "CE Sidebar",
+  "category": "custom-blocks",
+  "icon": "screenoptions",
+  "apiVersion": 2,
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "block-render-template.php"
+  },
+  "supports": {
+    "align": [
+      "full"
+    ],
+    "anchor": true,
+    "fullHeight": true
+  }
+}

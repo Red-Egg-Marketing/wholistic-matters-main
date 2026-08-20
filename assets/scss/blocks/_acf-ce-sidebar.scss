@@ -1,0 +1,25 @@
+.ce-sidebar {
+	.primary-button {
+		display: flex;
+		align-items: center;
+		width: fit-content;
+		padding: .625rem .9375rem;
+		border-radius: 3.125rem !important;
+		background: #576949 !important;
+		color: #fbfbfa !important;
+		font-size: 1rem;
+		font-weight: bold;
+		text-decoration: none;
+
+		&::after {
+			content: '';
+			background-image: url("../../assets/images/Line\ 1.svg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			display: inline-block;
+			margin-left: .9375rem;
+			height: 1rem;
+			width: 1rem;
+		}
+	}
+}

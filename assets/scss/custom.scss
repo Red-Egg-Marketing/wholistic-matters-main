@@ -6,7 +6,7 @@
 @import 'plugins/slick.scss';
 // Fancybox
 @import 'plugins/fancybox.v3';
-//@import 'plugins/fancybox.v4'; 
+//@import 'plugins/fancybox.v4';
 // Home slider
 @import 'inc/slider';
 // Animation
@@ -49,7 +49,7 @@ body {
 	height: auto;
 	min-height: 100vh;
 	box-sizing: border-box;
-	
+
 }
 
 main {
@@ -58,6 +58,13 @@ main {
 	background-color: #ffffff;
 	@include breakpoint(medium down) {
 		margin-top: rem-calc(75);
+	}
+}
+
+.banner-margin + main {
+	margin-top: rem-calc(165);
+	@include breakpoint(medium down) {
+		margin-top: rem-calc(138);
 	}
 }
 

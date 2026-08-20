@@ -701,8 +701,13 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
 	<div class="preloader__icon"></div>
 </div> -->
 
+<?php
+    $has_header_banner = get_field('toggle_header_banner', 'option');
+    $header_classes = ( $has_header_banner ) ? 'header banner-margin' : 'header';
+?>
+
 <!-- BEGIN of header -->
-<header class="header">
+<header class="<?php echo $header_classes; ?>">
     <?php if( have_rows('header_slider', 'option') ): ?>
         <ul  class="header-slider hs-cta-trigger-button hs-cta-trigger-button-181938718511-deactivated">
             <?php while( have_rows('header_slider', 'option') ): the_row();
@@ -714,7 +719,7 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
             <?php endwhile; ?>
         </ul>
     <?php endif; ?>
-    <?php if( get_field('toggle_header_banner', 'option') ): ?>
+    <?php if( $has_header_banner ): ?>
         <div class="header-banner ">
             <?php echo get_field('header_banner', 'option'); ?>
         </div>

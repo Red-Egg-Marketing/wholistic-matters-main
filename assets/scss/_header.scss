@@ -100,10 +100,11 @@
 
 	a {
 		padding: .5rem 1rem;
+		color: $white;
+		background-color: $green;
+
 		&:hover {
-			opacity: 1;
-			color: $white;
-			background-color: $green;
+			opacity: .9;
 		}
 	}
 }

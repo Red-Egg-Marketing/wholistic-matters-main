@@ -449,7 +449,7 @@
         },
         {
             "key": "field_66b0819f95ads",
-            "label": "CE Sidebar",
+            "label": "Continuing Education Content",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -464,6 +464,10 @@
             "placement": "top",
             "endpoint": 0,
             "selected": 0
+        },
+        {
+
+
         },
         {
             "key": "field_6a862b46b58a0",
@@ -502,6 +506,50 @@
                 "id": ""
             },
             "return_format": "array"
+        },
+        {
+            "key": "field_6a862b15lk58a0",
+            "label": "CE Disclaimer Left Column",
+            "name": "ce_sidebar_content_left_column",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_6a8642lp5lk58a0",
+            "label": "CE Disclaimer Right Column",
+            "name": "ce_sidebar_content_right_column",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_66b0819f95dfb",

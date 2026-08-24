@@ -99,8 +99,10 @@
 	}
 
 	a {
-		padding: .5rem 1rem;
+		padding: 0 rem-calc(10);
+		border-radius: rem-calc(48);
 		color: $white;
+		font-size: rem-calc(14);
 		background-color: $green;
 
 		&:hover {

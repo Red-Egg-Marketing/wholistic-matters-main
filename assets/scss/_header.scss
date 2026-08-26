@@ -82,7 +82,7 @@
 		top: rem-calc(16);
 	}
 }
-.header-banner {
+.header-eyebrow {
 	padding: .5rem 1.5625rem;
 	background-color: $light-green;
 	display: flex;
@@ -98,16 +98,26 @@
 		}
 	}
 
-	a {
-		padding: 0 rem-calc(10);
+	a:hover {
+		opacity: .9;
+	}
+
+	a.primary-button {
+		padding: .25rem .9375rem;
 		border-radius: rem-calc(48);
 		color: $white;
 		font-size: rem-calc(14);
+		font-weight: 500;
 		background-color: $green;
 
 		&:hover {
 			opacity: .9;
 		}
+	}
+
+	a.text-button {
+		color: #576949;
+		text-decoration: underline;
 	}
 }
 //.header__menu-toggle {

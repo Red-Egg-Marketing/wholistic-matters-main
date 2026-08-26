@@ -702,8 +702,8 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
 </div> -->
 
 <?php
-    $has_header_banner = get_field('toggle_header_banner', 'option');
-    $header_classes = ( $has_header_banner ) ? 'header banner-margin' : 'header';
+    $has_header_eyebrow = get_field('toggle_header_eyebrow', 'option');
+    $header_classes = ( $has_header_eyebrow ) ? 'header eyebrow-margin' : 'header';
 ?>
 
 <!-- BEGIN of header -->
@@ -719,11 +719,33 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
             <?php endwhile; ?>
         </ul>
     <?php endif; ?>
-    <?php if( $has_header_banner ): ?>
-        <div class="header-banner ">
-            <?php echo get_field('header_banner', 'option'); ?>
+
+    <?php if( $has_header_eyebrow ): ?>
+        <div class="header-eyebrow ">
+            <?php if( have_rows('header_eyebrow_repeater', 'option') ): ?>
+                <?php while( have_rows('header_eyebrow_repeater', 'option') ): the_row(); ?>
+
+                    <?php
+                    $eyebrow_link = get_sub_field('header_eyebrow_link','option');
+                    $eyebrow_link_style = get_sub_field('header_eyebrow_link_style','option');
+                    $eyebrow_link_class = ( $eyebrow_link_style === 'primary_button' ) ? 'primary-button' : 'text-button';
+                    ?>
+
+                    <?php if ($eyebrow_link) : ?>
+                    <a
+                        href="<?php echo esc_url($eyebrow_link["url"]); ?>"
+                        class="<?php echo $eyebrow_link_class ?>"
+                        target="<?php echo esc_attr($eyebrow_link["target"]); ?>"
+                    >
+                        <?php echo esc_html($eyebrow_link["title"]); ?>
+                    </a>
+                    <?php endif; ?>
+
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
     <?php endif; ?>
+
     <div class="header-content">
         <div class="logo text-center medium-text-left">
             <h1><?php show_custom_logo(); ?><span class="css-clip"><?php echo get_bloginfo( 'name' ); ?></span></h1>

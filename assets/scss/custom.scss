@@ -61,10 +61,10 @@ main {
 	}
 }
 
-.banner-margin + main {
-	margin-top: rem-calc(165);
+.eyebrow-margin + main {
+	margin-top: rem-calc(155);
 	@include breakpoint(medium down) {
-		margin-top: rem-calc(138);
+		margin-top: rem-calc(130);
 	}
 }
 

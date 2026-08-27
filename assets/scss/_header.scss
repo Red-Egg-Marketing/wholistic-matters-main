@@ -88,11 +88,14 @@
 	display: flex;
 	justify-content: end;
 	align-items: center;
-	text-align: right;
+	text-align: center;
 
 	& > * {
 		margin: 0 1rem;
 
+		&:first-child {
+			margin-left: 0;
+		}
 		&:last-child {
 			margin-right: 0;
 		}
@@ -118,6 +121,11 @@
 	a.text-button {
 		color: #576949;
 		text-decoration: underline;
+	}
+	@include breakpoint(small down) {
+		a.primary-button, a.text-button {
+			font-size: rem-calc(12);
+		}
 	}
 }
 //.header__menu-toggle {

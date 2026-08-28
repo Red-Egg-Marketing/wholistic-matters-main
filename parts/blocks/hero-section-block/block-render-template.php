@@ -14,8 +14,31 @@ $hero_button = get_field('hero_button');
     <div class="overlay">
         <h1><?php echo $hero_title; ?></h1>
         <p><?php echo $description; ?></p>
-        <?php if($hero_button): ?>
-            <a target="<?php echo $hero_button['target']?>" tabindex="0" href="<?php echo $hero_button['url']?>" class="outline-button"><?php echo $hero_button['title']; echo return_svg(get_template_directory_uri().'/assets/images/arrow-button.svg', 'arrow-button')?></a>
-        <?php endif; ?>
+
+        <div class="is-layout-flex">
+            <?php if($hero_button): ?>
+                <a target="<?php echo $hero_button['target']?>" tabindex="0" href="<?php echo $hero_button['url']?>" class="outline-button"><?php echo $hero_button['title']; echo return_svg(get_template_directory_uri().'/assets/images/arrow-button.svg', 'arrow-button');?></a>
+            <?php endif; ?>
+
+            <?php if( have_rows('additional_hero_buttons_repeater') ): ?>
+                <?php while( have_rows('additional_hero_buttons_repeater') ): the_row(); ?>
+
+                    <?php
+                    $additional_button = get_sub_field('additional_hero_button');
+                    ?>
+
+                    <?php if ($additional_button) : ?>
+                    <a
+                        href="<?php echo esc_url($additional_button["url"]); ?>"
+                        class="outline-button"
+                        target="<?php echo esc_attr($additional_button["target"]); ?>"
+                    >
+                        <?php echo esc_html($additional_button["title"]); echo return_svg(get_template_directory_uri().'/assets/images/arrow-button.svg', 'arrow-button');?>
+                    </a>
+                    <?php endif; ?>
+
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
     </div>
 </section>

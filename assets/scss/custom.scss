@@ -61,7 +61,7 @@ main {
 	}
 }
 
-.eyebrow-margin + main {
+.eyebrow-margin + main, .eyebrow-margin + .error-page {
 	margin-top: rem-calc(155);
 	@include breakpoint(medium down) {
 		margin-top: rem-calc(128);

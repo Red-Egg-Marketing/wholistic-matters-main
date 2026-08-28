@@ -26,4 +26,16 @@
 			opacity: .9;
 		}
 	}
+
+	a.text-button {
+		text-decoration: underline;
+	}
+
+	.text-button, .primary-button {
+		margin-bottom: 1rem;
+
+		&::last-child {
+			margin-bottom: 0;
+		}
+	}
 }

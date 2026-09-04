@@ -187,16 +187,15 @@
 				}
 			}
 			img {
-				width: rem-calc(233);
 				height: rem-calc(229);
 				margin-bottom: rem-calc(12);
 				object-fit: cover;
 				border-radius: rem-calc(16);
 				@include breakpoint(large down) {
 					margin-right: rem-calc(12);
+					width: rem-calc(175);
 				}
 				@include breakpoint(1110 down) {
-					width: rem-calc(175);
 					height: rem-calc(170);
 				}
 				@include breakpoint(small down) {

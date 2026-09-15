@@ -49,7 +49,7 @@ include_once get_stylesheet_directory() . '/inc/class-dynamic-admin.php';
 include_once get_stylesheet_directory() . '/inc/svg-support.php';
 // Extend WP Search with Custom fields
 include_once get_stylesheet_directory() . '/inc/custom-fields-search.php';
-// Filter for images and ADA 
+// Filter for images and ADA
 include_once get_stylesheet_directory() . '/inc/image-filter.php';
 // Filter for empty links
 include_once get_stylesheet_directory() . '/inc/link-filter.php';
@@ -214,7 +214,7 @@ function starter_widgets_init() {
 		'before_title'  => '<h5 class="widget__title">',
 		'after_title'   => '</h5>',
 	) );
-	
+
     // Sidebar 1
     register_sidebar(
             array(
@@ -291,7 +291,7 @@ add_action( 'wp_default_scripts', 'starter_remove_jquery_migrate' );
 
 function starter_scripts_and_styles() {
 	if ( ! is_admin() ) {
-		
+
 		wp_deregister_style('gform_theme_ie11');
 
 		// Load Stylesheets
@@ -1009,10 +1009,10 @@ function starter_show_editor_on_posts_page( $post ) {
 	if ( isset( $post ) && $post->ID != get_option( 'page_for_posts' ) ) {
 		return;
 	}
-	
+
 	// Remove Notice "You are currently editing the page that shows your latest posts."
 	remove_action( 'edit_form_after_title', '_wp_posts_page_notice' );
-	
+
 	// Add content editor to the posts page
 	add_post_type_support( 'page', 'editor' );
 }
@@ -1026,7 +1026,7 @@ function starter_show_editor_on_posts_page( $post ) {
  */
 function get_theme_colors() {
 	// Default colors fallback.
-	// TODO Fill $palette array with main design colors to be able use in Gutenberg editor 
+	// TODO Fill $palette array with main design colors to be able use in Gutenberg editor
 	$palette = [
 		[ "name" => "Black", "slug" => "black", "color" => "#000000" ],
 		[ "name" => "White", "slug" => "white", "color" => "#ffffff" ],
@@ -1037,7 +1037,7 @@ function get_theme_colors() {
 		[ "name" => "Light Gray", "slug" => "light-gray", "color" => "#C2C4C0" ],
 		[ "name" => "Orange", "slug" => "orange", "color" => "#F5A200" ],
 		[ "name" => "Light Green", "slug" => "light-green", "color" => "#DFE5DC" ],
-		[ "name" => "Text Black", "slug" => "light-green", "color" => "#21201F" ],
+		[ "name" => "Text Black", "slug" => "text-black", "color" => "#21201F" ],
 	];
 	return $palette;
 }
@@ -1636,7 +1636,7 @@ register_activation_hook(__FILE__, 'flush_rewrite_rules_on_activation');
 /*******************************************************************************/
 
 // Gutenberg should be used by default!!!
-// TODO comment acf_gutenberg support if Classic Editor is required  
+// TODO comment acf_gutenberg support if Classic Editor is required
 add_theme_support( 'acf_gutenberg' );
 
 // TODO uncomment acf_flexible support ONLY if Flexible Content is required by client

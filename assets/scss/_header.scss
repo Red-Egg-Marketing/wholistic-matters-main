@@ -640,7 +640,7 @@
 				/* Style for first level menu links */
 
 			}
-			&:nth-child(3) {
+			&:has(.menu-card-article-wrap) {
 				> .submenu.js-dropdown-active {
 					display: flex;
 					flex-direction: row;
@@ -840,6 +840,7 @@
 				img {
 					border-radius: rem-calc(16);
 					height: 100%;
+					width: 100%;
 					object-fit: cover;
 				}
 				@include breakpoint(large down) {

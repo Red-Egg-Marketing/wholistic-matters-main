@@ -16,7 +16,8 @@
 				align-items: center;
 				margin-bottom: rem-calc(45);
 				img {
-					height: rem-calc(44);
+					max-width: 40%;
+					object-fit: contain;
 				}
 				.right-logo {
 					height: rem-calc(36);

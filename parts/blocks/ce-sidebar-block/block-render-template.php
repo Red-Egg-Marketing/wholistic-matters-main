@@ -20,8 +20,8 @@ $content = get_field('ce_sidebar_content', 'option');
             <?php while( have_rows('ce_sidebar_repeater', 'option') ): the_row(); ?>
 
                 <?php
-                $sidebar_button = get_sub_field('ce_sidebar_button','option');
-                $sidebar_button_style = get_sub_field('ce_sidebar_button_style','option');
+                $sidebar_button = get_sub_field('ce_sidebar_button');
+                $sidebar_button_style = get_sub_field('ce_sidebar_button_style');
                 $sidebar_button_class = ( $sidebar_button_style === 'primary_button' ) ? 'primary-button' : 'text-button';
                 ?>
 

@@ -2,11 +2,6 @@
 /**
  * Header
  */
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
-$host = $_SERVER['HTTP_HOST'];
-$requestUri = $_SERVER['REQUEST_URI'];
-$parsedUrl = parse_url($requestUri);
-$currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : $protocol . $host . $parsedUrl['path']);
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -707,14 +702,27 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
 ?>
 
 <!-- BEGIN of header -->
-<header class="<?php echo $header_classes; ?>">
+<header class="<?php echo esc_attr($header_classes); ?>">
     <?php if( have_rows('header_slider', 'option') ): ?>
         <ul  class="header-slider hs-cta-trigger-button hs-cta-trigger-button-181938718511-deactivated">
             <?php while( have_rows('header_slider', 'option') ): the_row();
-                $text = get_sub_field('text', 'option');
+                $header_slider_content_type = get_sub_field('header_slider_content_type');
+                $header_slider_link = get_sub_field('header_slider_link');
+                $header_slider_text = get_sub_field('header_slider_text');
                 ?>
                 <li class="header-slider-item">
-                    <span><?php echo $text; ?></span>
+
+                    <?php if ( $header_slider_content_type === 'text' && $header_slider_text ) : ?>
+                    <span><?php echo esc_html($header_slider_text); ?></span>
+
+                    <?php elseif ( $header_slider_content_type === 'link' && $header_slider_link ) : ?>
+                    <a
+                        href="<?php echo esc_url($header_slider_link["url"]); ?>"
+                        target="<?php echo esc_attr($header_slider_link["target"]); ?>"
+                    >
+                        <?php echo esc_html($header_slider_link["title"]); ?>
+                    </a>
+                    <?php endif; ?>
                 </li>
             <?php endwhile; ?>
         </ul>
@@ -726,15 +734,15 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
                 <?php while( have_rows('header_eyebrow_repeater', 'option') ): the_row(); ?>
 
                     <?php
-                    $eyebrow_link = get_sub_field('header_eyebrow_link','option');
-                    $eyebrow_link_style = get_sub_field('header_eyebrow_link_style','option');
+                    $eyebrow_link = get_sub_field('header_eyebrow_link');
+                    $eyebrow_link_style = get_sub_field('header_eyebrow_link_style');
                     $eyebrow_link_class = ( $eyebrow_link_style === 'primary_button' ) ? 'primary-button' : 'text-button';
                     ?>
 
                     <?php if ($eyebrow_link) : ?>
                     <a
                         href="<?php echo esc_url($eyebrow_link["url"]); ?>"
-                        class="<?php echo $eyebrow_link_class ?>"
+                        class="<?php echo esc_attr($eyebrow_link_class); ?>"
                         target="<?php echo esc_attr($eyebrow_link["target"]); ?>"
                     >
                         <?php echo esc_html($eyebrow_link["title"]); ?>
@@ -748,7 +756,7 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
 
     <div class="header-content">
         <div class="logo text-center medium-text-left">
-            <h1><?php show_custom_logo(); ?><span class="css-clip"><?php echo get_bloginfo( 'name' ); ?></span></h1>
+            <h1><?php show_custom_logo(); ?><span class="css-clip"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span></h1>
         </div>
         <?php if ( has_nav_menu( 'header-menu' ) || has_nav_menu( 'mobile-menu' ))  : ?>
             <nav class="top-bar" id="main-menu">
@@ -792,7 +800,7 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
         <?php if( have_rows('search_options_list', 'option') ): ?>
             <ul class="search-options-list">
                 <?php while( have_rows('search_options_list', 'option') ): the_row();
-                    $search_audience = get_sub_field('search_audience','option');
+                    $search_audience = get_sub_field('search_audience');
                     $args = array(
                         'post_type' => 'page',
                         'tax_query' => array(
@@ -805,24 +813,24 @@ $currentUrl = ($parsedUrl['query'] !== 'id' ? $protocol . $host . $requestUri : 
                     );
 
                     $query = new WP_Query($args);
-                    $title = $query->posts[0]->post_title;
+                    $title = ! empty( $query->posts ) ? $query->posts[0]->post_title : '';
+
+                    // Reset the global post object so that the rest of the page works correctly.
+                    wp_reset_postdata();
                     ?>
                     <li>
-                        <span><?php echo $title; ?></span>
+                        <span><?php echo esc_html($title); ?></span>
                         <?php
-                        $search_params = get_sub_field('search_params', 'option');
+                        $search_params = get_sub_field('search_params');
                         if( $search_params ): ?>
                             <ul>
                                 <?php foreach( $search_params as $search_param ): ?>
-                                    <li class="search-option" data-audience-tax="<?php echo $search_audience->taxonomy?>" data-taxonomy="<?php echo $search_param->taxonomy?>" data-audience-term="<?php echo $search_audience->slug?>">
-                                        <input type="radio" id="<?php echo $search_audience->slug ."-" . $search_param->slug?>"  value="<?php echo $search_param->slug?>">
-                                        <label class="radio-label" for="<?php echo $search_audience->slug ."-" . $search_param->slug?>"><?php echo $search_param->name?></label><br>
+                                    <li class="search-option" data-audience-tax="<?php echo esc_attr($search_audience->taxonomy); ?>" data-taxonomy="<?php echo esc_attr($search_param->taxonomy); ?>" data-audience-term="<?php echo esc_attr($search_audience->slug); ?>">
+                                        <input type="radio" id="<?php echo esc_attr($search_audience->slug ."-" . $search_param->slug); ?>"  value="<?php echo esc_attr($search_param->slug); ?>">
+                                        <label class="radio-label" for="<?php echo esc_attr($search_audience->slug ."-" . $search_param->slug); ?>"><?php echo esc_html($search_param->name); ?></label><br>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
-                            <?php
-                            // Reset the global post object so that the rest of the page works correctly.
-                            wp_reset_postdata(); ?>
                         <?php endif; ?>
                     </li>
                 <?php endwhile; ?>

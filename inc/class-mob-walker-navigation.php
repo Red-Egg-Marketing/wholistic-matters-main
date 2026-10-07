@@ -82,7 +82,7 @@ class Mob_Walker_Navigation extends Walker_Nav_Menu {
     /**
      * Adds custom class to parent item with dropdown menu
      */
-    function display_element($element, &$children_elements, $max_depth, $depth = 0, $args, &$output)
+    function display_element($element, &$children_elements, $max_depth, $depth, $args, &$output)
     {
         $id_field = $this->db_fields['id'];
         $submenu_type = get_field('submenu_type', $element->ID);

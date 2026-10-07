@@ -136,11 +136,11 @@ if ($cta_image || $cta_button) {
 						$output .= "\n$indent</li>\n";
 						$output .= "\n$indent<li class='$depth'>\n";
 						$output .= "\n$indent<div class='menu-cta-block'>\n";
-						
+
 						// --- НОВЫЙ БЛОК: ССЫЛКА НА ИЗОБРАЖЕНИЕ И ЗАГОЛОВОК ---
 						// Открываем тег <a> для изображения и заголовка
 						$output .= "\n$indent<a href='$cta_link_url' class='menu-cta-link-area'>\n";
-						
+
 						if ($cta_image) {
 							$image_html = wp_get_attachment_image($cta_image['id'], 'large', false, [
 								'class' => 'cta-image'
@@ -152,7 +152,7 @@ if ($cta_image || $cta_button) {
 							// Добавляем заголовок внутрь той же ссылки <a>
 							$output .= "\n$indent<h3 class='cta-title'>{$cta_header_title}</h3>\n";
 						}
-						
+
 						// Закрываем тег <a>, который оборачивает изображение и заголовок
 						$output .= "\n$indent</a>\n";
 						// --------------------------------------------------------
@@ -173,7 +173,7 @@ if ($cta_image || $cta_button) {
     /**
      * Adds custom class to parent item with dropdown menu
      */
-    function display_element($element, &$children_elements, $max_depth, $depth = 0, $args, &$output)
+    function display_element($element, &$children_elements, $max_depth, $depth, $args, &$output)
     {
         $id_field = $this->db_fields['id'];
         $submenu_type = get_field('submenu_type', $element->ID);

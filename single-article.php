@@ -225,6 +225,11 @@ get_header(); ?>
                     </div>
                     <div class="single-article-content-left-description">
                         <?php the_content(); ?>
+                        <?php if ($term_audience[0]->slug === 'hcp') : ?>
+                            <?php get_template_part( 'parts/media-text-hcp' ); ?>
+                        <?php elseif ($term_audience[0]->slug === 'ne') : ?>
+                            <?php get_template_part( 'parts/media-text-ne' ); ?>
+                        <?php endif; ?>
                     </div>
                     <?php if ($term_audience[0]->slug === 'hcp') : ?><?php echo return_svg(get_template_directory_uri() . '/assets/images/practioner.svg', 'category-icon') ?><?php endif; ?>
                     <div class="author-block-wrap">

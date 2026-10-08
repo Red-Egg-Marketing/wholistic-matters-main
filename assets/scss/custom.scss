@@ -188,6 +188,9 @@ img.fancybox-image {
 ------------------------------------- */
 
 .single {
+	.mt-hcp-ne p {
+		font-size: 15px;
+	}
 	.acf-hero-section-block {
 		height: rem-calc(400);
 		@include breakpoint(small down) {

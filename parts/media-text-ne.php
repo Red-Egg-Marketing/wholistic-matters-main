@@ -14,8 +14,7 @@ $image = wp_get_attachment_image(
 	'large',
 	false,
 	array(
-		'class' => 'wp-image-' . $image_id . ' size-large',
-		'style' => 'object-fit: cover; height: 100%;',
+		'class' => 'wp-image-' . $image_id . ' size-large'
 	)
 );
 

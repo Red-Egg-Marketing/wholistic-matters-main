@@ -191,6 +191,9 @@ img.fancybox-image {
 	.mt-hcp-ne p {
 		font-size: 15px;
 	}
+	.wp-block-media-text img {
+		object-fit: cover; height: 100%;
+	}
 	.acf-hero-section-block {
 		height: rem-calc(400);
 		@include breakpoint(small down) {

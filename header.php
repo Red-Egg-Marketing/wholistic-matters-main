@@ -698,7 +698,7 @@
 
 <?php
     $has_header_eyebrow = get_field('toggle_header_eyebrow', 'option');
-    $header_classes = ( $has_header_eyebrow ) ? 'header eyebrow-margin' : 'header';
+    $header_classes = 'header';
 ?>
 
 <!-- BEGIN of header -->

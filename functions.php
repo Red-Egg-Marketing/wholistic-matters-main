@@ -1794,7 +1794,16 @@ function modify_search_query_for_pagination( $query ) {
 }
 add_action( 'pre_get_posts', 'modify_search_query_for_pagination' );
 
-
+function wm_header_height_script() {
+    wp_enqueue_script(
+        'header-height',
+        get_template_directory_uri() . '/assets/js/header-height.js',
+        array(),
+        '1.0',
+        true // load in the footer, after the header exists
+    );
+}
+add_action( 'wp_enqueue_scripts', 'wm_header_height_script' );
 
 
 

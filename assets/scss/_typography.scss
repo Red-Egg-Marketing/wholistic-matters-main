@@ -124,6 +124,10 @@ ul {
 		a {
 			text-decoration: underline;
 		}
+
+		@include breakpoint(small down) {
+			font-size: rem-calc(14);
+		}
 	}
 }
 
@@ -152,7 +156,7 @@ a {
 }
 
 a, button, .button, input[type='submit'], input[type='reset'], input[type='button'] {
-	// Change opacity to 0.5 and color by client request. 
+	// Change opacity to 0.5 and color by client request.
 	-webkit-tap-highlight-color: rgba(invert($main-color), 0.5) !important;
 }
 

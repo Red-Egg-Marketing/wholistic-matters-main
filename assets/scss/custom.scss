@@ -1037,6 +1037,13 @@ img.fancybox-image {
 	}
 }
 
+/* Print Aritcles */
+@media print {
+	header, .mt-hcp-ne, .navigation-wrap, .sidebar, .acf-custom-subscribe-form-process, .references-list, footer {
+		display: none!important;
+	}
+}
+
 /* 404 page */
 
 .not-found {

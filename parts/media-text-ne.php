@@ -33,11 +33,11 @@ if ( $link ) {
 
 $markup = sprintf(
 	'<!-- wp:media-text {"mediaId":%1$d,"linkDestination":"none","mediaType":"image","mediaWidth":53,"style":{"color":{"background":"#9aa592"},"spacing":{"margin":{"top":"30px"},"padding":{"top":"0","bottom":"0"}}}} -->
-<div class="wp-block-media-text is-stacked-on-mobile has-background" style="background-color:#9aa592;margin-top:30px;padding-top:0;padding-bottom:0;grid-template-columns:53%% auto"><figure class="wp-block-media-text__media" style="height:100%%;object-fit:cover;">%2$s</figure><div class="wp-block-media-text__content" style="padding:25px!important;"><!-- wp:heading {"level":3} -->
+<div class="mt-hcp-ne wp-block-media-text is-stacked-on-mobile has-background" style="background-color:#9aa592;margin-top:30px;padding-top:0;padding-bottom:0;grid-template-columns:53%% auto"><figure class="wp-block-media-text__media" style="height:100%%;object-fit:cover;">%2$s</figure><div class="wp-block-media-text__content" style="padding:25px!important;"><!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">%3$s</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"15px"}}} -->
-<div class="wp-block-group mt-hcp-ne" style="font-size:15px">%4$s</div>
+<div class="wp-block-group" style="font-size:15px">%4$s</div>
 <!-- /wp:paragraph -->
 %5$s</div></div>
 <!-- /wp:media-text -->',
